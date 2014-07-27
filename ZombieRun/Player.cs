@@ -131,6 +131,7 @@ namespace ZombieRun
             float Xradius = Width / 2;
             float Yradius = Height / 2;
             block collidedPlatform = null;
+            List<block> collidedBlocks = new List<block>();
 
             foreach (block p in platforms)
             {
@@ -140,63 +141,66 @@ namespace ZombieRun
                     (position.Y < (p.position.Y + p.Height / 2 + Yradius)))
 
                 {
-                    collidedPlatform = p;
-                    break;
+                    collidedBlocks.Add(p);
+                    
                 }
             }
             //collisions work for all side of blocks. 
-            if (collidedPlatform != null)
+            foreach (block p in collidedBlocks)
             {
-                if ((position.Y <
-                    (collidedPlatform.position.Y - collidedPlatform.Height / 1.5 /*+ radius*/)))
+                if (p != null)
                 {
+                    if ((position.Y <
+                        (p.position.Y - p.Height / 1.5 /*+ radius*/)))
+                    {
 
-                    grounded = true;
+                        grounded = true;
+
+                    }
+
+                    else if ((position.Y >
+                        (p.position.Y + p.Height / 2)))
+                    {
+                        if (y_vel < 0)
+                            y_vel *= -1;
+                        //player1.direction.Y = -1.0f * player1.direction.Y;
+                    }
+
+
+                    else
+                    {
+                        x_vel *= -2;
+                    }
+                    ///summary
+                    ///this one works for just one of them, but not the other side. This is interesting.
+                    ///end summary
+
+
+                    // else if ((position.X <
+                    //(collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    // {
+                    //     position.X += 3;
+                    //     //x_vel -= speed;
+                    //     //x_vel /= -1;
+                    //     //grounded = false;
+                    //     //player1.direction.X = -1.0f * player1.direction.X;
+                    // }
+
+                    // else if ((position.X >
+                    //     (collidedPlatform.position.X - collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    // {
+                    //     position.X -= 3;
+                    //     //x_vel += speed;
+                    //     //x_vel /= -1;
+                    //     //    //grounded = false;
+                    //     //    //player1.direction.X = -1.0f * player1.direction.X;
+                    // }
+
+
+
 
                 }
-
-                else if ((position.Y   >
-                    (collidedPlatform.position.Y + collidedPlatform.Height / 2 )))
-                {
-                    if(y_vel < 0)
-                        y_vel *= -1;
-                    //player1.direction.Y = -1.0f * player1.direction.Y;
-                }
-
-                 
-                else
-                {
-                    x_vel *= -2;
-                }
-                ///summary
-                ///this one works for just one of them, but not the other side. This is interesting.
-                ///end summary
-                
-
-               // else if ((position.X <
-               //(collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-               // {
-               //     position.X += 3;
-               //     //x_vel -= speed;
-               //     //x_vel /= -1;
-               //     //grounded = false;
-               //     //player1.direction.X = -1.0f * player1.direction.X;
-               // }
-
-               // else if ((position.X >
-               //     (collidedPlatform.position.X - collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-               // {
-               //     position.X -= 3;
-               //     //x_vel += speed;
-               //     //x_vel /= -1;
-               //     //    //grounded = false;
-               //     //    //player1.direction.X = -1.0f * player1.direction.X;
-               // }
-               
-
-                
-
-            }
+            } 
         }
 
         public void checkXCollisions(block[] platforms)
