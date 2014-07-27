@@ -139,7 +139,8 @@ namespace ZombieRun
                 if ((position.X > (p.position.X - p.Width / 2 - Xradius )) &&
                     (position.X < (p.position.X + p.Width / 2 + Xradius )) &&
                    (position.Y > (p.position.Y - p.Height / 2 - Yradius  )) &&//on top
-                    (position.Y < (p.position.Y + p.Height / 2 + Yradius   )))//below
+                    ((position.Y < (p.position.Y + p.Height / 2 + Yradius)))
+                    )//below
 
                 {
                     collidedBlocks.Add(p);
@@ -147,30 +148,33 @@ namespace ZombieRun
                 }
             }
             //collisions work for all side of blocks. 
-            
-            
             foreach (block p in collidedBlocks)
             {
                 if (p != null)
                 {
-                    if ((position.Y <
-                        (p.position.Y - p.Height / 2 /*+ radius*/)))
+                    if ((BoundingBox.Bottom <
+                        (p.BoundingBox.Top/*+ radius*/)))
                     {
 
                         grounded = true;
 
                     }
-
-                    else if ((position.Y >
+                
+                    else if ((BoundingBox.Top >
                         (p.position.Y + p.Height / 2 /*- Yradius*/)))
                     {
                         if (y_vel < 0)
                             y_vel *= -1;
+
+                        else
+                        {
+                            x_vel *= -2;
+                        }
                         //player1.direction.Y = -1.0f * player1.direction.Y;
                     }
 
 
-                     else if ((position.X <
+                    else if ( (position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
                          x_vel *= -2;
@@ -180,7 +184,7 @@ namespace ZombieRun
                          //player1.direction.X = -1.0f * player1.direction.X;
                      }
 
-                     else if ((position.X >
+                     else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
                          (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
                          x_vel *= -2;
