@@ -20,6 +20,7 @@ namespace ZombieRun
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D bgTexture;
+        Texture2D line;
         Player player1;
         block block2;
         block block1;
@@ -64,13 +65,14 @@ namespace ZombieRun
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("background");
+            line = Content.Load<Texture2D>("markerline");
             player1 = new Player(this);
             block1 = new block(this);
             block1.LoadContent();
-            block1.position = new Vector2(405, 700);
+            block1.position = new Vector2(405, 650);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
             block2 = new block(this);
             block2.LoadContent();
-            block2.position = new Vector2(300, 700);
+            block2.position = new Vector2(300, 650);
             block3 = new block(this);
             block3.LoadContent();
             block3.position = new Vector2(510, 595);
@@ -86,6 +88,8 @@ namespace ZombieRun
 
             // TODO: use this.Content to load your game content here
         }
+
+        
 
         //protected void CheckCollisions()
         //{
@@ -141,6 +145,8 @@ namespace ZombieRun
             spriteBatch.Begin();
             ////draw all sprites here
             spriteBatch.Draw(bgTexture, new Vector2(0, 300), Color.White);
+            spriteBatch.Draw(line, new Vector2(0, 700), Color.White);
+            
             block1.Draw(spriteBatch);
             block2.Draw(spriteBatch);
             block3.Draw(spriteBatch);

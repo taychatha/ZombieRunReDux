@@ -30,7 +30,7 @@ namespace ZombieRun
         public Player(Game myGame):
             base(myGame)
         {
-            textureName = "prep2";
+            textureName = "prep2-spot";
             speed = 5;
             friction = .15;
             x_accel = 0;
@@ -82,6 +82,7 @@ namespace ZombieRun
             position.X += movedX;
 
             position.X = MathHelper.Clamp(position.X, 10 + texture.Width / 2, 1020 - texture.Width / 2);
+
             if(!grounded)
             {
                 y_vel += gravity;
@@ -95,7 +96,7 @@ namespace ZombieRun
                 y_vel = 1;
             }
 
-            grounded = false;
+            //grounded = false;
 
 
             
@@ -123,7 +124,7 @@ namespace ZombieRun
         {
 
            
-            if (position.Y >= 700)
+            if (position.Y > 700)
                 grounded = true;
             else
                 grounded = false;
@@ -137,8 +138,8 @@ namespace ZombieRun
             {
                 if ((position.X > (p.position.X - p.Width / 2 - Xradius )) &&
                     (position.X < (p.position.X + p.Width / 2 + Xradius )) &&
-                   (position.Y > (p.position.Y - p.Height / 2 - Yradius )) &&
-                    (position.Y < (p.position.Y + p.Height / 2 + Yradius)))
+                   (position.Y > (p.position.Y - p.Height / 2 - Yradius  )) &&//on top
+                    (position.Y < (p.position.Y + p.Height / 2 + Yradius   )))//below
 
                 {
                     collidedBlocks.Add(p);
@@ -146,12 +147,14 @@ namespace ZombieRun
                 }
             }
             //collisions work for all side of blocks. 
+            
+            
             foreach (block p in collidedBlocks)
             {
                 if (p != null)
                 {
                     if ((position.Y <
-                        (p.position.Y - p.Height / 1.5 /*+ radius*/)))
+                        (p.position.Y - p.Height / 2 /*+ radius*/)))
                     {
 
                         grounded = true;
@@ -159,7 +162,7 @@ namespace ZombieRun
                     }
 
                     else if ((position.Y >
-                        (p.position.Y + p.Height / 2)))
+                        (p.position.Y + p.Height / 2 /*- Yradius*/)))
                     {
                         if (y_vel < 0)
                             y_vel *= -1;
@@ -167,10 +170,29 @@ namespace ZombieRun
                     }
 
 
-                    else
-                    {
-                        x_vel *= -2;
-                    }
+                     else if ((position.X <
+                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                     {
+                         x_vel *= -2;
+                         //x_vel -= speed;
+                         //x_vel /= -1;
+                         //grounded = false;
+                         //player1.direction.X = -1.0f * player1.direction.X;
+                     }
+
+                     else if ((position.X >
+                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                     {
+                         x_vel *= -2;
+                         //x_vel += speed;
+                         //x_vel /= -1;
+                         //    //grounded = false;
+                         //    //player1.direction.X = -1.0f * player1.direction.X;
+                     }
+                    //else
+                    //{
+                      //  x_vel *= -2;
+                    //}
                     ///summary
                     ///this one works for just one of them, but not the other side. This is interesting.
                     ///end summary

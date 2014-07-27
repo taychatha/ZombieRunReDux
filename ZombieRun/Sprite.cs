@@ -27,6 +27,11 @@ namespace ZombieRun
             game = myGame;
         }
 
+        public Rectangle BoundingBox
+        {
+            get { return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height); }
+
+        }
         public float Width
         {
             get { return texture.Width; }
