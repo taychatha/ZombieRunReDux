@@ -67,13 +67,13 @@ namespace ZombieRun
             player1 = new Player(this);
             block1 = new block(this);
             block1.LoadContent();
-            block1.position = new Vector2(405, 686);
+            block1.position = new Vector2(405, 700);
             block2 = new block(this);
             block2.LoadContent();
-            block2.position = new Vector2(300, 686);
+            block2.position = new Vector2(300, 700);
             block3 = new block(this);
             block3.LoadContent();
-            block3.position = new Vector2(500, 633);
+            block3.position = new Vector2(510, 595);
             
             blocks = new block[3];
             blocks[0] = block1;

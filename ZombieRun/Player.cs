@@ -134,8 +134,8 @@ namespace ZombieRun
 
             foreach (block p in platforms)
             {
-                if ((position.X > (p.position.X - p.Width / 2 - Xradius + 10)) &&
-                    (position.X < (p.position.X + p.Width / 2 + Xradius - 10)) &&
+                if ((position.X > (p.position.X - p.Width / 2 - Xradius )) &&
+                    (position.X < (p.position.X + p.Width / 2 + Xradius )) &&
                    (position.Y > (p.position.Y - p.Height / 2 - Yradius )) &&
                     (position.Y < (p.position.Y + p.Height / 2 + Yradius)))
 
@@ -163,31 +163,10 @@ namespace ZombieRun
                     //player1.direction.Y = -1.0f * player1.direction.Y;
                 }
 
-                 else if ((position.X <
-                (collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-                 {
-                     x_vel *= -2;
-                     //x_vel -= speed;
-                     //x_vel /= -1;
-                     //grounded = false;
-                     //player1.direction.X = -1.0f * player1.direction.X;
-                 }
-
-                else if ((position.X >
-                    (collidedPlatform.position.X - collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-                {
-                    x_vel *= -2;
-                    //x_vel += speed;
-                    //x_vel /= -1;
-                    //    //grounded = false;
-                    //    //player1.direction.X = -1.0f * player1.direction.X;
-                }
+                 
                 else
                 {
-                    if (grounded)
-                    {
-                        position.Y -= 10;
-                    }
+                    x_vel *= -2;
                 }
                 ///summary
                 ///this one works for just one of them, but not the other side. This is interesting.
