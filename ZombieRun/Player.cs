@@ -177,7 +177,7 @@ namespace ZombieRun
                     else if ( (position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
-                         x_vel *= -2;
+                         position.X -= 3;
                          //x_vel -= speed;
                          //x_vel /= -1;
                          //grounded = false;
@@ -187,7 +187,7 @@ namespace ZombieRun
                      else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
                          (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
-                         x_vel *= -2;
+                         position.X += 3;
                          //x_vel += speed;
                          //x_vel /= -1;
                          //    //grounded = false;

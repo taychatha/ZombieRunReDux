@@ -15,3 +15,4 @@ C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-spot.png
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.PNG
+C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png

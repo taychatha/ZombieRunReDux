@@ -86,7 +86,9 @@
     <Content Include="Content\block.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Zombie Brick.png" />
+    <Content Include="Content\Zombie Brick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\zombie.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>

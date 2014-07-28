@@ -69,13 +69,13 @@ namespace ZombieRun
             player1 = new Player(this);
             block1 = new block(this);
             block1.LoadContent();
-            block1.position = new Vector2(405, 650);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
+            block1.position = new Vector2(470, 600);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
             block2 = new block(this);
             block2.LoadContent();
             block2.position = new Vector2(300, 650);
             block3 = new block(this);
             block3.LoadContent();
-            block3.position = new Vector2(510, 595);
+            block3.position = new Vector2(250, 650);
             
             blocks = new block[3];
             blocks[0] = block1;

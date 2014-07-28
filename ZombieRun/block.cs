@@ -21,7 +21,7 @@ namespace ZombieRun
         public block(Game myGame) :
             base(myGame)
         {
-            textureName = "block";
+            textureName = "Zombie Brick";
             
         }
 
