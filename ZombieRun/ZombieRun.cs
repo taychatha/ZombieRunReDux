@@ -83,7 +83,7 @@ namespace ZombieRun
             blocks[2] = block3;
 
             player1.LoadContent();
-            player1.position = new Vector2(200, 700);
+            player1.position = new Vector2(100, 700);
 
 
             // TODO: use this.Content to load your game content here
