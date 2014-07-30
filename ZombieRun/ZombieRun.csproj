@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Bullets.cs" />
     <Compile Include="Controls.cs" />
     <Compile Include="block.cs" />
     <Compile Include="vertBlock.cs" />

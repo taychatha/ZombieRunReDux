@@ -16,3 +16,39 @@ C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-spot.png
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.PNG
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-spot.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\Stan\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-spot.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache

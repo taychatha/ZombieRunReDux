@@ -83,7 +83,6 @@ namespace ZombieRun
 
             position.X = MathHelper.Clamp(position.X, 10 + texture.Width / 2, 1020 - texture.Width / 2);
 
-            //on the ground is set 700.
             if(!grounded)
             {
                 y_vel += gravity;
@@ -137,12 +136,11 @@ namespace ZombieRun
 
             foreach (block p in platforms)
             {
-                   //just tests if there is a collision occuring, and if there is, then it is added to the block of collided boxes.
                 if ((position.X > (p.position.X - p.Width / 2 - Xradius )) &&
                     (position.X < (p.position.X + p.Width / 2 + Xradius )) &&
-                   (position.Y > (p.position.Y - p.Height / 2 - Yradius  )) &&
+                   (position.Y > (p.position.Y - p.Height / 2 - Yradius  )) &&//on top
                     ((position.Y < (p.position.Y + p.Height / 2 + Yradius)))
-                    )
+                    )//below
 
                 {
                     collidedBlocks.Add(p);
@@ -154,7 +152,6 @@ namespace ZombieRun
             {
                 if (p != null)
                 {
-                    //Landing on top of box
                     if ((BoundingBox.Bottom <
                         (p.BoundingBox.Top/*+ radius*/)))
                     {
@@ -163,7 +160,6 @@ namespace ZombieRun
 
                     }
                 
-                        // hitting from the top
                     else if ((BoundingBox.Top >
                         (p.position.Y + p.Height / 2 /*- Yradius*/)))
                     {
@@ -179,7 +175,7 @@ namespace ZombieRun
 
 
                     else if ( (position.X <
-                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // Player running into the right part of the block, gets pushed left.
+                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
                          position.X -= 3;
                          //x_vel -= speed;
@@ -189,7 +185,7 @@ namespace ZombieRun
                      }
 
                      else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
-                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // player running into the left side of a block, gets pushed right
+                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
                          position.X += 3;
                          //x_vel += speed;
@@ -197,8 +193,35 @@ namespace ZombieRun
                          //    //grounded = false;
                          //    //player1.direction.X = -1.0f * player1.direction.X;
                      }
+                    //else
+                    //{
+                      //  x_vel *= -2;
+                    //}
+                    ///summary
+                    ///this one works for just one of them, but not the other side. This is interesting.
+                    ///end summary
 
-                    //ignore this code.
+
+                    // else if ((position.X <
+                    //(collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    // {
+                    //     position.X += 3;
+                    //     //x_vel -= speed;
+                    //     //x_vel /= -1;
+                    //     //grounded = false;
+                    //     //player1.direction.X = -1.0f * player1.direction.X;
+                    // }
+
+                    // else if ((position.X >
+                    //     (collidedPlatform.position.X - collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    // {
+                    //     position.X -= 3;
+                    //     //x_vel += speed;
+                    //     //x_vel /= -1;
+                    //     //    //grounded = false;
+                    //     //    //player1.direction.X = -1.0f * player1.direction.X;
+                    // }
+
 
 
 

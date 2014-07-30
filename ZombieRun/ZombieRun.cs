@@ -22,10 +22,11 @@ namespace ZombieRun
         Texture2D bgTexture;
         Texture2D line;
         Player player1;
-        block block2;
-        block block1;
-        block block3;
+        //block block2;
+        //block block1;
+        //block block3;
         block[] blocks;
+        Random rnd = new Random();
         Controls controls;
 
         public ZombieRun()
@@ -67,22 +68,51 @@ namespace ZombieRun
             bgTexture = Content.Load<Texture2D>("background");
             line = Content.Load<Texture2D>("markerline");
             player1 = new Player(this);
-            block1 = new block(this);
-            block1.LoadContent();
-            block1.position = new Vector2(470, 600);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
-            block2 = new block(this);
-            block2.LoadContent();
-            block2.position = new Vector2(300, 650);
-            block3 = new block(this);
-            block3.LoadContent();
-            block3.position = new Vector2(250, 650);
+            //block1 = new block(this);
+            //block1.LoadContent();
+            //block1.position = new Vector2(470, 600);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
+            //block2 = new block(this);
+            //block2.LoadContent();
+            //block2.position = new Vector2(300, 650);
+            //block3 = new block(this);
+            //block3.LoadContent();
+           // block3.position = new Vector2(250, 650);
             
-            blocks = new block[3];
-            blocks[0] = block1;
-            blocks[1]= block2;
-            blocks[2] = block3;
+            //set up block array, load all block content
+            blocks = new block[rnd.Next(4,15)];
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                blocks[i] = new block(this);
+                blocks[i].LoadContent();
+            }
 
-            player1.LoadContent();
+            //for loop trial for "randomly" placing tiles
+            int x1;
+            int y1;
+
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                x1 = rnd.Next(200, 700);
+                y1 = rnd.Next(450, 700);
+                blocks[i].position = new Vector2(x1, y1);
+               
+            }
+
+            //refinement of block placement
+            for (int i = 1; i < blocks.Length; i++)
+            {
+                if (blocks[i - 1].position.X >= (blocks[i].position.X + 50))
+                {
+                    blocks[i].position.X = blocks[i-1].position.X + 100;
+                }
+                if (blocks[i - 1].position.Y >= (blocks[i].position.Y - 25))
+                {
+                    blocks[i].position.Y = blocks[i-1].position.Y - 75;
+                }
+            }
+
+
+                player1.LoadContent();
             player1.position = new Vector2(100, 700);
 
 
@@ -129,9 +159,15 @@ namespace ZombieRun
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             player1.Update(controls, gameTime, blocks);
-            block1.Update();
-            block2.Update();
-            block3.Update();
+
+            //update all blocks in array
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                blocks[i].Update();
+            }
+            //block1.Update();
+            //block2.Update();
+            //block3.Update();
             //CheckCollisions();
             base.Update(gameTime);
         }
@@ -147,10 +183,17 @@ namespace ZombieRun
             ////draw all sprites here
             spriteBatch.Draw(bgTexture, new Vector2(0, 300), Color.White);
             spriteBatch.Draw(line, new Vector2(0, 700), Color.White);
+
+            //draw all blocks in array
+
+            for (int i = 0; i < blocks.Length; i++)
+            {
+                blocks[i].Draw(spriteBatch);
+            }
             
-            block1.Draw(spriteBatch);
-            block2.Draw(spriteBatch);
-            block3.Draw(spriteBatch);
+            //block1.Draw(spriteBatch);
+            //block2.Draw(spriteBatch);
+            //block3.Draw(spriteBatch);
             player1.Draw(spriteBatch);
             
             spriteBatch.End();

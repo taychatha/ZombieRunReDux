@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ZombieRun
 {
-    class Bullet: Sprite
+    class Bullet : Sprite
     {
         public Vector2 startPosition;
         public Vector2 velocity;
@@ -23,13 +23,13 @@ namespace ZombieRun
         public int movedX;
         private Vector2 direction;
 
-        public Bullet(Game myGame):
+        public Bullet(Game myGame) :
             base(myGame)
         {
 
             isVisible = false;
             speed = 200;
-            x_vel = 10;
+            x_vel = 0;
 
 
         }
@@ -43,6 +43,6 @@ namespace ZombieRun
             spriteBatch.Draw(texture, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0);
         }
 
-            
+
     }
 }
