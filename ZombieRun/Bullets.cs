@@ -34,14 +34,15 @@ namespace ZombieRun
 
         }
 
+        public void Update(){
+            position.X += 3;
+        }
+
         public override void LoadContent()
         {
             texture = game.Content.Load<Texture2D>("bullet.png");
         }
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0);
-        }
+        
 
 
     }

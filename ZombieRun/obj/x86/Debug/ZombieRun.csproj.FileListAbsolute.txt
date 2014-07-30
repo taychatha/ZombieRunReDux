@@ -52,3 +52,5 @@ C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\D
 C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
 C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
 C:\Users\tchat_000\Documents\ZombieRunUpdate\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\TempBrick.png
+C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png

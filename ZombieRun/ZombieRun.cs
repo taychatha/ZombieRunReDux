@@ -26,7 +26,10 @@ namespace ZombieRun
         //block block1;
         //block block3;
         block[] blocks;
+        Bullet bulletBill;
+        List<Bullet> bullets = new List<Bullet>();
         Random rnd = new Random();
+        KeyboardState pastKey;
         Controls controls;
 
         public ZombieRun()
@@ -68,6 +71,9 @@ namespace ZombieRun
             bgTexture = Content.Load<Texture2D>("background");
             line = Content.Load<Texture2D>("markerline");
             player1 = new Player(this);
+            bulletBill = new Bullet(this);
+            bulletBill.LoadContent();
+            bulletBill.position = new Vector2(100, 700);
             //block1 = new block(this);
             //block1.LoadContent();
             //block1.position = new Vector2(470, 600);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
@@ -79,7 +85,7 @@ namespace ZombieRun
            // block3.position = new Vector2(250, 650);
             
             //set up block array, load all block content
-            blocks = new block[rnd.Next(4,15)];
+            blocks = new block[rnd.Next(6,15)];
             for (int i = 0; i < blocks.Length; i++)
             {
                 blocks[i] = new block(this);
@@ -90,29 +96,37 @@ namespace ZombieRun
             int x1;
             int y1;
 
-            for (int i = 0; i < blocks.Length; i++)
+            for (int i = 0; i < blocks.Length/2; i++)
             {
-                x1 = rnd.Next(200, 700);
-                y1 = rnd.Next(450, 700);
+                x1 = rnd.Next(100, 700);
+                y1 = 600;
                 blocks[i].position = new Vector2(x1, y1);
                
             }
 
-            //refinement of block placement
-            for (int i = 1; i < blocks.Length; i++)
+            for (int i = blocks.Length / 2; i < blocks.Length; i++)
             {
-                if (blocks[i - 1].position.X >= (blocks[i].position.X + 50))
-                {
-                    blocks[i].position.X = blocks[i-1].position.X + 100;
-                }
-                if (blocks[i - 1].position.Y >= (blocks[i].position.Y - 25))
-                {
-                    blocks[i].position.Y = blocks[i-1].position.Y - 75;
-                }
+
+                x1 = rnd.Next(100, 700);
+                y1 = 400;
+                blocks[i].position = new Vector2(x1, y1);
             }
 
+                //refinement of block placement
+                for (int i = 1; i < blocks.Length; i++)
+                {
+                    if (blocks[i - 1].position.X >= (blocks[i].position.X + 50))
+                    {
+                        blocks[i].position.X = blocks[i - 1].position.X + 100;
+                    }
+                    if (blocks[i - 1].position.Y >= (blocks[i].position.Y - 25))
+                    {
+                        blocks[i].position.Y = blocks[i - 1].position.Y - 75;
+                    }
+                }
 
-                player1.LoadContent();
+
+            player1.LoadContent();
             player1.position = new Vector2(100, 700);
 
 
@@ -169,7 +183,57 @@ namespace ZombieRun
             //block2.Update();
             //block3.Update();
             //CheckCollisions();
+            if (Keyboard.GetState().IsKeyDown(Keys.A) && pastKey.IsKeyUp(Keys.A)){
+                Shoot();
+                //if (bulletBill.isVisible == false)
+                //    bulletBill.isVisible = true;
+                //else
+                //    bulletBill.isVisible = false;
+        }
+            pastKey = Keyboard.GetState();
+            bulletBill.Update();
+            UpdateBullets();
+            
             base.Update(gameTime);
+        }
+
+
+
+        public void UpdateBullets()
+        {
+         
+                foreach (Bullet b in bullets)
+                {
+                    b.position.X += 3;
+                    if (b.position.X > 1020)
+                        b.isVisible = false;
+                }
+                 for (int i = 0; i < bullets.Count; i++)
+                 {
+                     if (!bullets[i].isVisible)
+                     {
+                         bullets.RemoveAt(i);
+                         i--;
+                     }
+                }
+                
+            
+
+
+        }
+
+        public void Shoot()
+        {
+
+            Bullet newB = new Bullet(this);
+            newB.LoadContent();
+            newB.position = player1.position;
+            newB.position.Y -= 10;
+            newB.position.X += 10;
+            newB.isVisible = true;
+
+            if (bullets.Count < 1000)
+                bullets.Add(newB);
         }
 
         /// <summary>
@@ -190,7 +254,10 @@ namespace ZombieRun
             {
                 blocks[i].Draw(spriteBatch);
             }
-            
+            foreach (Bullet b in bullets)
+                b.Draw(spriteBatch);
+            if(bulletBill.isVisible)
+                bulletBill.Draw(spriteBatch);
             //block1.Draw(spriteBatch);
             //block2.Draw(spriteBatch);
             //block3.Draw(spriteBatch);
