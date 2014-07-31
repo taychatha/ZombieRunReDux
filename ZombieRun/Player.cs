@@ -23,7 +23,7 @@ namespace ZombieRun
         public int movedX;
         private Vector2 direction;
         private bool pushing;
-        public double gravity = 1.0;
+        public double gravity = 0.4;
         public int maxFallSpeed = 10;
         private int jumpPoint = 0;
 
@@ -107,19 +107,20 @@ namespace ZombieRun
         private void Jump(Controls controls, GameTime gameTime)
         {
 
-            if (controls.onPress(Keys.Space, Buttons.A) && grounded)
+            if (controls.onPress(Keys.Up, Buttons.A) && grounded)
             {
-                y_vel = -21;
+                y_vel = -15;
                 jumpPoint = (int)(gameTime.TotalGameTime.TotalMilliseconds);
                 grounded = false;
             }
 
-            else if (controls.onRelease(Keys.Space, Buttons.A) && y_vel < 0)
+            else if (controls.onRelease(Keys.Up, Buttons.A) && y_vel < 0)
             {
                 y_vel /= 2;
             }
         }
 
+        
         public void checkYCollisions(block[] platforms)
         {
 
@@ -131,7 +132,6 @@ namespace ZombieRun
 
             float Xradius = Width / 2;
             float Yradius = Height / 2;
-            block collidedPlatform = null;
             List<block> collidedBlocks = new List<block>();
 
             foreach (block p in platforms)
@@ -153,7 +153,7 @@ namespace ZombieRun
                 if (p != null)
                 {
                     if ((BoundingBox.Bottom <
-                        (p.BoundingBox.Top/*+ radius*/)))
+                        (p.BoundingBox.Top+20/*+ radius*/)))
                     {
 
                         grounded = true;

@@ -22,15 +22,17 @@ namespace ZombieRun
         Texture2D bgTexture;
         Texture2D line;
         Player player1;
+        bool playerShooting;
         //block block2;
         //block block1;
         //block block3;
         block[] blocks;
-        Bullet bulletBill;
-        List<Bullet> bullets = new List<Bullet>();
         Random rnd = new Random();
-        KeyboardState pastKey;
         Controls controls;
+        KeyboardState pastKey;
+        List<Bullet> bullets = new List<Bullet>();
+        List<Zombie> zombies = new List<Zombie>();
+         
 
         public ZombieRun()
             : base()
@@ -71,9 +73,6 @@ namespace ZombieRun
             bgTexture = Content.Load<Texture2D>("background");
             line = Content.Load<Texture2D>("markerline");
             player1 = new Player(this);
-            bulletBill = new Bullet(this);
-            bulletBill.LoadContent();
-            bulletBill.position = new Vector2(100, 700);
             //block1 = new block(this);
             //block1.LoadContent();
             //block1.position = new Vector2(470, 600);//position.y = 660, the character doesn't get underneath. I need to adjust the ratio in the class.
@@ -85,7 +84,8 @@ namespace ZombieRun
            // block3.position = new Vector2(250, 650);
             
             //set up block array, load all block content
-            blocks = new block[rnd.Next(6,15)];
+            blocks = new block[rnd.Next(6, 15)];
+            
             for (int i = 0; i < blocks.Length; i++)
             {
                 blocks[i] = new block(this);
@@ -96,12 +96,12 @@ namespace ZombieRun
             int x1;
             int y1;
 
-            for (int i = 0; i < blocks.Length/2; i++)
+            for (int i = 0; i < blocks.Length / 2; i++)
             {
                 x1 = rnd.Next(100, 700);
                 y1 = 600;
                 blocks[i].position = new Vector2(x1, y1);
-               
+
             }
 
             for (int i = blocks.Length / 2; i < blocks.Length; i++)
@@ -112,46 +112,48 @@ namespace ZombieRun
                 blocks[i].position = new Vector2(x1, y1);
             }
 
-                //refinement of block placement
-                for (int i = 1; i < blocks.Length; i++)
+            //refinement of block placement
+            for (int i = 1; i < blocks.Length; i++)
+            {
+                if (blocks[i - 1].position.X >= (blocks[i].position.X + 50))
                 {
-                    if (blocks[i - 1].position.X >= (blocks[i].position.X + 50))
-                    {
-                        blocks[i].position.X = blocks[i - 1].position.X + 100;
-                    }
-                    if (blocks[i - 1].position.Y >= (blocks[i].position.Y - 25))
-                    {
-                        blocks[i].position.Y = blocks[i - 1].position.Y - 75;
-                    }
+                    blocks[i].position.X = blocks[i-1].position.X + 100;
                 }
+                if (blocks[i - 1].position.Y >= (blocks[i].position.Y - 25))
+                {
+                    blocks[i].position.Y = blocks[i-1].position.Y - 75;
+                }
+            }
+            //zombies spawn
+            for (int i = 0; i < rnd.Next(5,9); i++)
+            {
+                Zombie Z = new Zombie(this);
+                Z.LoadContent();
+                zombies.Add(Z);
+            }
 
+            int flip = 0;
+            foreach (Zombie z in zombies)
+            {
+                flip = rnd.Next(0, 1);
+                x1 = rnd.Next(200, 700);
+                if (flip == 0)
+                {
+                    z.position = new Vector2(x1, 700);
+                }
+                else
+                    z.position = new Vector2(x1, 400);
+            }
 
             player1.LoadContent();
             player1.position = new Vector2(100, 700);
+            
 
 
             // TODO: use this.Content to load your game content here
         }
 
         
-        
-
-        //protected void CheckCollisions()
-        //{
-        //    float radius = player1.Width / 2;
-        //    if ((player1.position.X >= (block1.position.X - block1.Width / 2) && player1.position.X <= (block1.position.X + block1.Width / 2)))
-        //        if ((player1.position.Y > (block1.position.Y - block1.Height+10)))
-        //            player1.grounded = true;
-        //        else
-        //            player1.grounded = false;
-
-        //    //check for block
-            
-        //}
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
@@ -161,6 +163,8 @@ namespace ZombieRun
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
+       
+        
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
@@ -172,52 +176,69 @@ namespace ZombieRun
             controls.Update();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            player1.Update(controls, gameTime, blocks);
 
+
+            
             //update all blocks in array
             for (int i = 0; i < blocks.Length; i++)
             {
                 blocks[i].Update();
             }
+            
             //block1.Update();
             //block2.Update();
             //block3.Update();
             //CheckCollisions();
-            if (Keyboard.GetState().IsKeyDown(Keys.A) && pastKey.IsKeyUp(Keys.A)){
+            player1.Update(controls, gameTime, blocks);
+
+            foreach (Zombie z in zombies)
+            {
+                if (z.isAlive)
+                {
+
+                    z.Update(gameTime, blocks);
+
+                    z.getPlayerPosition(player1);
+                    z.checkBulletCollision(bullets);
+                }
+
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && pastKey.IsKeyUp(Keys.Space))
+            {
                 Shoot();
-                //if (bulletBill.isVisible == false)
-                //    bulletBill.isVisible = true;
-                //else
-                //    bulletBill.isVisible = false;
-        }
-            pastKey = Keyboard.GetState();
-            bulletBill.Update();
+
+            }
+
             UpdateBullets();
+            
+            pastKey = Keyboard.GetState();
+
+            
+            
             
             base.Update(gameTime);
         }
 
-
-
+        
         public void UpdateBullets()
         {
-         
-                foreach (Bullet b in bullets)
+
+            foreach (Bullet b in bullets)
+            {
+                b.position.X += 10;
+                if (b.position.X > 1020)
+                    b.isVisible = false;
+            }
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                if (!bullets[i].isVisible)
                 {
-                    b.position.X += 10;
-                    if (b.position.X > 1020)
-                        b.isVisible = false;
+                    bullets.RemoveAt(i);
+                    i--;
                 }
-                 for (int i = 0; i < bullets.Count; i++)
-                 {
-                     if (!bullets[i].isVisible)
-                     {
-                         bullets.RemoveAt(i);
-                         i--;
-                     }
-                }
-                
-            
+            }
+
+
 
 
         }
@@ -235,6 +256,7 @@ namespace ZombieRun
             if (bullets.Count < 1000)
                 bullets.Add(newB);
         }
+
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -254,13 +276,20 @@ namespace ZombieRun
             {
                 blocks[i].Draw(spriteBatch);
             }
-            foreach (Bullet b in bullets)
-                b.Draw(spriteBatch);
-            if(bulletBill.isVisible)
-                bulletBill.Draw(spriteBatch);
+
+            foreach (Zombie z in zombies)
+            {
+               
+                if(z.isAlive)
+                    z.Draw(spriteBatch);
+            }
+            
             //block1.Draw(spriteBatch);
             //block2.Draw(spriteBatch);
             //block3.Draw(spriteBatch);
+            foreach (Bullet b in bullets)
+                b.Draw(spriteBatch);
+            
             player1.Draw(spriteBatch);
             
             spriteBatch.End();

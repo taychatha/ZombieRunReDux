@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ZombieRun
 {
-    class Bullet : Sprite
+    public class Bullet : Sprite
     {
         public Vector2 startPosition;
         public Vector2 velocity;
