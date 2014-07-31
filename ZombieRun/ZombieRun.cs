@@ -204,7 +204,7 @@ namespace ZombieRun
          
                 foreach (Bullet b in bullets)
                 {
-                    b.position.X += 3;
+                    b.position.X += 10;
                     if (b.position.X > 1020)
                         b.isVisible = false;
                 }
