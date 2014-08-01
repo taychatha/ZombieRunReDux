@@ -317,6 +317,7 @@ namespace ZombieRun
             Bullet newB = new Bullet(this);
             newB.LoadContent();
             newB.position = player1.position;
+
             newB.position.X += 20;
             newB.isVisible = true;
 
