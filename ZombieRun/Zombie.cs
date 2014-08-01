@@ -53,7 +53,7 @@ namespace ZombieRun
             get { return texture.Height; }
         }
 
-        public void Update(GameTime gameTime, block[] platforms)
+        public void Update(GameTime gameTime, List<block> platforms)
         {
 
             Move(platforms);
@@ -71,7 +71,7 @@ namespace ZombieRun
 
 
 
-        public void Move(block[] platforms)
+        public void Move(List<block> platforms)
         {
 
             if (destination == this.position.X) {
@@ -144,7 +144,7 @@ namespace ZombieRun
         }
 
 
-        public void checkYCollisions(block[] platforms)
+        public void checkYCollisions(List<block> platforms)
         {
 
 
@@ -230,49 +230,7 @@ namespace ZombieRun
             }
         }
 
-        public void checkXCollisions(block[] platforms)
-        {
-
-            float Xradius = Width / 2;
-            float Yradius = Height / 2;
-            block collidedPlatform = null;
-
-            foreach (block p in platforms)
-            {
-                if ((position.X > (p.position.X - p.Width / 2 - Xradius)) &&
-                    (position.X < (p.position.X + p.Width / 2 + Xradius)) &&
-                    (position.Y > (p.position.Y - p.Height / 2 - Yradius)) &&
-                    (position.Y < (p.position.Y + p.Height / 2 + Yradius)))
-                {
-                    collidedPlatform = p;
-                    break;
-                }
-            }
-
-            if ((position.X >
-                (collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-            {
-                //x_vel -= speed;
-                //x_vel /= -1;
-                //grounded = false;
-                //player1.direction.X = -1.0f * player1.direction.X;
-                position.X -= 1;
-                position.Y += 1;
-            }
-
-            else if ((position.X >
-                (collidedPlatform.position.X - collidedPlatform.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-            {
-                //x_vel += speed;
-                //x_vel /= -1;
-                //    //grounded = false;
-                //    //player1.direction.X = -1.0f * player1.direction.X;
-                position.X += 1;
-                position.Y += 1;
-            }
-
-
-        }
+        
 
 
 

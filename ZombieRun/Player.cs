@@ -48,7 +48,7 @@ namespace ZombieRun
             get { return texture.Height; }
         }
 
-        public void Update(Controls controls, GameTime gameTime, block[] platforms)
+        public void Update(Controls controls, GameTime gameTime, List<block> platforms)
         {
 
             Move(controls, platforms);
@@ -60,7 +60,7 @@ namespace ZombieRun
 
 
         
-        public void Move(Controls controls, block[] platforms)
+        public void Move(Controls controls, List<block> platforms)
         {
             if (controls.onPress(Keys.Right, Buttons.DPadRight)){
                 x_accel += speed;
@@ -121,7 +121,7 @@ namespace ZombieRun
         }
 
         
-        public void checkYCollisions(block[] platforms)
+        public void checkYCollisions(List<block> platforms)
         {
 
            
@@ -193,34 +193,7 @@ namespace ZombieRun
                          //    //grounded = false;
                          //    //player1.direction.X = -1.0f * player1.direction.X;
                      }
-                    //else
-                    //{
-                      //  x_vel *= -2;
-                    //}
-                    ///summary
-                    ///this one works for just one of them, but not the other side. This is interesting.
-                    ///end summary
-
-
-                    // else if ((position.X <
-                    //(collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-                    // {
-                    //     position.X += 3;
-                    //     //x_vel -= speed;
-                    //     //x_vel /= -1;
-                    //     //grounded = false;
-                    //     //player1.direction.X = -1.0f * player1.direction.X;
-                    // }
-
-                    // else if ((position.X >
-                    //     (collidedPlatform.position.X - collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-                    // {
-                    //     position.X -= 3;
-                    //     //x_vel += speed;
-                    //     //x_vel /= -1;
-                    //     //    //grounded = false;
-                    //     //    //player1.direction.X = -1.0f * player1.direction.X;
-                    // }
+                    
 
 
 
@@ -229,89 +202,7 @@ namespace ZombieRun
             } 
         }
 
-        public void checkXCollisions(block[] platforms)
-        {
-            
-            float Xradius = Width / 2;
-            float Yradius = Height / 2;
-            block collidedPlatform = null;
-
-            foreach (block p in platforms)
-            {
-                if ((position.X > (p.position.X - p.Width / 2 - Xradius)) &&
-                    (position.X < (p.position.X + p.Width / 2 + Xradius)) &&
-                    (position.Y > (p.position.Y - p.Height / 2 - Yradius)) &&
-                    (position.Y < (p.position.Y + p.Height / 2 + Yradius)))
-                {
-                    collidedPlatform = p;
-                    break;
-                }
-            }
-
-            if ((position.X >
-                (collidedPlatform.position.X + collidedPlatform.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-            {
-                x_vel -= speed;
-                //x_vel /= -1;
-                //grounded = false;
-                //player1.direction.X = -1.0f * player1.direction.X;
-            }
-
-            else if ((position.X >
-                (collidedPlatform.position.X - collidedPlatform.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
-            {
-                x_vel += speed;
-                //x_vel /= -1;
-            //    //grounded = false;
-            //    //player1.direction.X = -1.0f * player1.direction.X;
-            }
-
-
-        }
-
         
-
-        //protected void CheckCollisions(Platform[] platforms)
-        //{
-        //    float radius = Width / 2;
-        //    Platform collidedPlatform = null;
-        //    foreach (Platform p in platforms)
-        //    {
-        //        if ((position.X > (p.position.X - p.Width / 2 - radius)) &&
-        //            (position.X < (p.position.X + p.Width / 2 + radius)) &&
-        //            (position.Y > (p.position.Y - p.Height / 2 - radius)) &&
-        //            (position.Y < (p.position.Y + p.Height / 2 + radius)))
-        //        {
-        //            collidedPlatform = p;
-        //            break;
-        //        }
-        //    }
-
-        //    if (collidedPlatform != null)
-        //    {
-        //        if ((position.Y <
-        //            (collidedPlatform.position.Y - collidedPlatform.Height / 2)))
-        //        {
-
-        //            checkYCollisions(collidedPlatform);
-
-        //        }
-
-        //        else if ((position.Y >
-        //            (collidedPlatform.position.Y + collidedPlatform.Height / 2)))
-        //        {
-        //            y_vel /= -1;
-        //            //player1.direction.Y = -1.0f * player1.direction.Y;
-        //        }
-
-        //        else // otherwise, we have to be colliding from the sides
-        //        {
-        //            x_vel = 0;
-        //            //player1.direction.X = -1.0f * player1.direction.X;
-        //        }
-
-        //    }
-        //}
 
         
     }
