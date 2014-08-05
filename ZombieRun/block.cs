@@ -16,13 +16,19 @@ namespace ZombieRun
         
         public int movedX;
         private Vector2 direction;
+        public bool visible;
         
 
         public block(Game myGame) :
             base(myGame)
         {
+            visible = true;
             textureName = "brick 3";
             
+        }
+        public void setTexture(string newText)
+        {
+            textureName = newText;
         }
 
         public float Width
@@ -35,10 +41,25 @@ namespace ZombieRun
         }
 
 
-        public void Update() { }
+        public void Update() {
+            position.X -= 0.5F;
+        }
+
         private void checkYCollisions()
         {
 
+        }
+
+        public bool checkVisibility()
+        {
+            if (position.X < 0) {
+                visible = false;
+            }
+            else
+            {
+                visible = true;
+            }
+            return visible;
         }
 
         

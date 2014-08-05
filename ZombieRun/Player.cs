@@ -30,7 +30,8 @@ namespace ZombieRun
         public Player(Game myGame):
             base(myGame)
         {
-            textureName = "prep2-spot";
+
+            textureName = "prep2";
             speed = 5;
             friction = .15;
             x_accel = 0;
@@ -48,10 +49,10 @@ namespace ZombieRun
             get { return texture.Height; }
         }
 
-        public void Update(Controls controls, GameTime gameTime, List<block> platforms)
+        public void Update(Controls controls, GameTime gameTime, List<block> platforms, List<block> platforms2)
         {
-
-            Move(controls, platforms);
+            position.X -= 0.5f;  
+            Move(controls, platforms, platforms2);
             Jump(controls, gameTime);
             
 
@@ -60,10 +61,11 @@ namespace ZombieRun
 
 
         
-        public void Move(Controls controls, List<block> platforms)
+        public void Move(Controls controls, List<block> platforms, List<block> platforms2)
         {
             if (controls.onPress(Keys.Right, Buttons.DPadRight)){
                 x_accel += speed;
+                this.textureName = "prep2";
             }
                 
             else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
@@ -72,7 +74,10 @@ namespace ZombieRun
 
 
             if (controls.onPress(Keys.Left, Buttons.DPadLeft))
+            {
                 x_accel -= speed;
+                this.textureName = "prep2-left";
+            }
             else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
                 x_accel += speed;
 
@@ -100,7 +105,8 @@ namespace ZombieRun
 
 
             
-            checkYCollisions(platforms);
+            checkYCollisions(platforms, platforms2);
+            //checkYCollisions(platforms2);
             //checkPlatformCollisions(platform);
         }
 
@@ -121,7 +127,7 @@ namespace ZombieRun
         }
 
         
-        public void checkYCollisions(List<block> platforms)
+        public void checkYCollisions(List<block> platforms, List<block> platforms2)
         {
 
            
@@ -136,6 +142,7 @@ namespace ZombieRun
 
             foreach (block p in platforms)
             {
+
                 if ((position.X > (p.position.X - p.Width / 2 - Xradius )) &&
                     (position.X < (p.position.X + p.Width / 2 + Xradius )) &&
                    (position.Y > (p.position.Y - p.Height / 2 - Yradius  )) &&//on top
@@ -147,13 +154,27 @@ namespace ZombieRun
                     
                 }
             }
+
+            foreach (block p in platforms2)
+            {
+                if ((position.X > (p.position.X - p.Width / 2 - Xradius - 5)) &&
+                    (position.X < (p.position.X + p.Width / 2 + Xradius + 5)) &&
+                   (position.Y > (p.position.Y - p.Height / 2 - Yradius)) &&//on top
+                    ((position.Y < (p.position.Y + p.Height / 2 + Yradius)))
+                    )//below
+                {
+                    collidedBlocks.Add(p);
+
+                }
+            }
             //collisions work for all side of blocks. 
             foreach (block p in collidedBlocks)
             {
-                if (p != null)
+
+                if (p.textureName == "brick 3")
                 {
                     if ((BoundingBox.Bottom <
-                        (p.BoundingBox.Top+20/*+ radius*/)))
+                        (p.BoundingBox.Top + 4/*+ radius*/)))
                     {
 
                         grounded = true;
@@ -193,16 +214,77 @@ namespace ZombieRun
                          //    //grounded = false;
                          //    //player1.direction.X = -1.0f * player1.direction.X;
                      }
-                    
+                  
 
 
 
 
                 }
+                else
+                {
+                    if ((BoundingBox.Bottom <
+                        (p.BoundingBox.Top - 40/*40 is the number we adjust to make it look better. but be careful because if the number is higher, then our guy
+                                                falls through the block. it's annoying...*/)))
+                    {
+
+                        grounded = true;
+
+                    }
+
+                    else if ((BoundingBox.Top >
+                        (p.position.Y + p.Height / 2 /*- Yradius*/)))
+                    {
+                        if (y_vel < 0)
+                            y_vel *= -1;
+
+                        else
+                        {
+                            x_vel *= -2;
+                        }
+                        //player1.direction.Y = -1.0f * player1.direction.Y;
+                    }
+
+
+                    else if ((position.X <
+                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    {
+                        position.X -= 3;
+                        //x_vel -= speed;
+                        //x_vel /= -1;
+                        //grounded = false;
+                        //player1.direction.X = -1.0f * player1.direction.X;
+                    }
+
+                    else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                        (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    {
+                        position.X += 3;
+                        //x_vel += speed;
+                        //x_vel /= -1;
+                        //    //grounded = false;
+                        //    //player1.direction.X = -1.0f * player1.direction.X;
+                    }
+
+                }
             } 
         }
 
-        
+        public bool checkZombieCollisions(List<Zombie> zombies)
+        {
+            bool dead = false;
+            foreach (Zombie z in zombies)
+            {
+                if (!z.isAlive)
+                {
+                    break;
+                }
+                else if (BoundingBox.Intersects(z.BoundingBox))
+                {
+                    dead = true;
+                }
+            }
+            return dead;
+        }
 
         
     }

@@ -13,7 +13,7 @@ namespace ZombieRun
 {
     public class Sprite
     {
-        protected string textureName = "";
+        public string textureName = "";
         protected Texture2D texture;
         protected Game game;
         public Vector2 position = Vector2.Zero;

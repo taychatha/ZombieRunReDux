@@ -35,6 +35,7 @@ namespace ZombieRun
         }
 
         public void Update(){
+            
             position.X += 3;
         }
 
@@ -42,8 +43,29 @@ namespace ZombieRun
         {
             texture = game.Content.Load<Texture2D>("bullet.png");
         }
-        
 
+        public void checkForBoxCollision(List<block> blocks)
+        {
+            
+            foreach (block b in blocks)
+            {
+                if ((b.textureName == "brick 3") &&((BoundingBox.Bottom > b.BoundingBox.Top-20)&&
+                    (BoundingBox.Top < b.BoundingBox.Bottom-20)&&
+                    (BoundingBox.Left < b.BoundingBox.Right -50)&&
+                    (BoundingBox.Right > b.BoundingBox.Left - 50)))
+                {
+                    isVisible = false;
+                }
+
+                else if ((b.textureName == "longBrick3") && ((BoundingBox.Bottom > b.BoundingBox.Top - 40) &&
+                    (BoundingBox.Top < b.BoundingBox.Bottom - 50) &&
+                    (BoundingBox.Left < b.BoundingBox.Right -50) &&
+                    (BoundingBox.Right > b.BoundingBox.Left- 50)))
+                {
+                    isVisible = false;
+                }
+            }
+        }
 
     }
 }

@@ -13,7 +13,7 @@ namespace ZombieRun
 {
     public class Zombie : Sprite
     {
-        public int speed;
+        public float speed;
         public bool isAlive;
         public bool grounded;
         private int x_accel;
@@ -27,13 +27,22 @@ namespace ZombieRun
         public int maxFallSpeed = 10;
         private int jumpPoint = 0;
         private float destination;
-
+        public int myscore;
+        public float currSpeed;
+        Random rnd = new Random();
 
         public Zombie(Game myGame) :
             base(myGame)
         {
             textureName = "Creeper1";
-            speed = 1;
+            //float tempSpeed = (float)rnd.Next(5,15) / 10;
+            //if (tempSpeed < (float)0.5)
+            //{
+            //    tempSpeed += (float)1.0;
+                //Console.Write(tempSpeed);
+            //}
+            speed = 1.0f;
+            currSpeed = speed;
             friction = 2;
             x_accel = 0;
             y_vel = 0;
@@ -80,7 +89,7 @@ namespace ZombieRun
             if (destination > this.position.X)
             {
                 
-                position.X += 1;
+                position.X += currSpeed;
             }
 
             //else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
@@ -92,14 +101,15 @@ namespace ZombieRun
                //x_accel -= speed;
                 //else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
                 //  x_accel += speed;
-                position.X -= 1;
+                position.X -= currSpeed;
         }
-            double playerFriction = pushing ? (friction * 3) : friction;
-            x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
-            movedX = Convert.ToInt32(x_accel);
-            position.X += movedX;
+            //double playerFriction = pushing ? (friction * 3) : friction;
+            //x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
+            //movedX = Convert.ToInt32(x_accel);
+            //position.X += movedX;
 
-            position.X = MathHelper.Clamp(position.X, 10 + texture.Width / 2, 1020 - texture.Width / 2);
+            //position.X = MathHelper.Clamp(position.X, 10 + texture.Width / 2, 1020 - texture.Width / 2);
+            position.X = MathHelper.Clamp(position.X, -50 + texture.Width / 2, 2000 - texture.Width / 2);
 
             if (!grounded)
             {
@@ -111,7 +121,8 @@ namespace ZombieRun
 
             else
             {
-                y_vel = 1;
+                //y_vel = 1;
+                position.Y = position.Y;
             }
 
             //grounded = false;
@@ -130,6 +141,7 @@ namespace ZombieRun
                 {
                     if (BoundingBox.Intersects(b.BoundingBox))
                     {
+                        myscore = 100;
                         isAlive = false;
                         b.isVisible = false;
                         bullets.Remove(b);
@@ -137,10 +149,17 @@ namespace ZombieRun
                     }
 
                 }
-                
-
-            
         
+        }
+
+        public int getScore()
+        {
+            return myscore;
+        }
+
+        public void setScore(int score)
+        {
+            myscore = score;
         }
 
 
@@ -167,6 +186,10 @@ namespace ZombieRun
                 {
                     collidedBlocks.Add(p);
 
+                }
+                else
+                {
+                    currSpeed = speed;
                 }
             }
 
@@ -199,30 +222,33 @@ namespace ZombieRun
 
                     
                     
-
+                    //left side collision
                     else if ((position.X <
-                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    (p.position.X + p.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X -= 1;
+                        position.X += -speed - 0.5f;
+                        //currSpeed = -0.5f;
                         //x_vel -= speed;
                         //x_vel /= -1;
                         //grounded = false;
                         //player1.direction.X = -1.0f * player1.direction.X;
                         y_vel = 0;
-                        position.Y -= 1;
+                        //position.Y -= 1;
                        
                     }
 
+                    //right side collision
                     else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
-                        (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                        (p.position.X - p.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X += 1;
+                        //currSpeed = 0.5f;
+                        position.X += speed - 0.5f;
                         //x_vel += speed;
                         //x_vel /= -1;
                         //    //grounded = false;
                         //    //player1.direction.X = -1.0f * player1.direction.X;
                         y_vel = 0;
-                        position.Y -= 1;
+                        //position.Y -= 1;
                     }
           
 
@@ -230,8 +256,34 @@ namespace ZombieRun
             }
         }
 
-        
 
+        public static float NextFloat(Random random)
+        {
+            float tempSpeed = 1.0f;
+            int caseSwitch = random.Next(1, 6);
+            switch (caseSwitch)
+            {
+                case 1:
+                    tempSpeed = 0.6f;
+                    break;
+                case 2:
+                    tempSpeed = 0.8f;
+                    break;
+                case 3:
+                    tempSpeed = 1.0f;
+                    break;
+                case 4:
+                    tempSpeed = 1.2f;
+                    break;
+                case 5:
+                    tempSpeed = 1.4f;
+                    break;
+                case 6:
+                    tempSpeed = 1.6f;
+                    break;     
+            }
+            return tempSpeed;
+        }
 
 
 
