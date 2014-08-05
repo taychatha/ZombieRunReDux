@@ -7,7 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Media;
 using Tao.Sdl;
+using System.Media;
+using System.Timers;
 #endregion
 
 namespace ZombieRun
@@ -23,6 +26,7 @@ namespace ZombieRun
         Texture2D line;
         Player player1;
         bool playerShooting;
+        
         //block block2;
         //block block1;
         //block block3;
@@ -56,12 +60,17 @@ namespace ZombieRun
         bool newBlocks = false;
         bool renewBlocks = true;
 
+        //for song audio
+        Song song;
+
+
+
         public ZombieRun()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1500;
+            graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
         }
 
@@ -97,6 +106,12 @@ namespace ZombieRun
             player1 = new Player(this);
 
             font = Content.Load<SpriteFont>("main_font");
+
+            SoundPlayer player = new SoundPlayer("Content/Zander Noriega - Abelian.wav");
+             
+            player.Play();
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Play(song);
 
 
             //block1 = new block(this);
@@ -196,7 +211,7 @@ namespace ZombieRun
         {
             x1 = 1900;
             //End Barrier, let's make it a 25% chance that a barrier occurs here
-            if (rnd.Next(0, 100) < 25)
+            if (rnd.Next(0, 100) < 10)
             {
                 block b = new block(this);
                 b.setTexture("longBrick3");
@@ -246,7 +261,7 @@ namespace ZombieRun
         {
             x1 = 1900;
             //End Barrier, let's make it a 25% chance that a barrier occurs here
-            if (rnd.Next(0, 100) < 25)
+            if (rnd.Next(0, 100) < 10)
             {
                 block b = new block(this);
                 b.setTexture("longBrick3");
@@ -349,7 +364,7 @@ namespace ZombieRun
         {
             x1 = 1100;
             //End Barrier, let's make it a 25% chance that a barrier occurs here
-            if (rnd.Next(0, 100) < 25)
+            if (rnd.Next(0, 100) < 15)
             {
                 block b = new block(this);
                 b.LoadContent();
@@ -607,6 +622,8 @@ namespace ZombieRun
             
 
             //I AM ALL THAT IS MAN ZOMBIES
+
+            
             for (int i = 0; i < zombies.Count; i++ )
             {
                 if (!zombies[i].isAlive)
@@ -614,6 +631,8 @@ namespace ZombieRun
                     zombies.RemoveAt(i);
                 }
             }
+
+
 
             if (zombies.Count <=6 )
             {

@@ -250,3 +250,5 @@ C:\Users\tchat_000\Downloads\ZombieRun-Pierce's Updates2\ZombieRun-Pierce's Upda
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3

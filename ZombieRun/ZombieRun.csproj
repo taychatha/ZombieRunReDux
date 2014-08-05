@@ -104,6 +104,12 @@
     <Content Include="Content\block.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Zander Noriega - Abelian.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Zander Noriega - Abelian.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Zombie Brick.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

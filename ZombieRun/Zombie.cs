@@ -35,12 +35,6 @@ namespace ZombieRun
             base(myGame)
         {
             textureName = "Creeper1";
-            //float tempSpeed = (float)rnd.Next(5,15) / 10;
-            //if (tempSpeed < (float)0.5)
-            //{
-            //    tempSpeed += (float)1.0;
-                //Console.Write(tempSpeed);
-            //}
             speed = 1.0f;
             currSpeed = speed;
             friction = 2;
@@ -187,20 +181,20 @@ namespace ZombieRun
                     collidedBlocks.Add(p);
 
                 }
-                else
-                {
-                    currSpeed = speed;
-                }
+                //else
+                //{
+                //    currSpeed = speed;
+                //}
             }
 
 
             //collisions work for all side of blocks. 
             foreach (block p in collidedBlocks)
             {
-                if (p != null)
+                if (p.textureName == "brick 3")
                 {
                     if ((BoundingBox.Bottom <
-                        (p.BoundingBox.Top/*+ radius*/)))
+                        (p.BoundingBox.Top + 40/*+ radius*/)))
                     {
 
                         grounded = true;
@@ -220,37 +214,76 @@ namespace ZombieRun
                         //player1.direction.Y = -1.0f * player1.direction.Y;
                     }
 
-                    
-                    
-                    //left side collision
+
                     else if ((position.X <
-                    (p.position.X + p.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X += -speed - 0.5f;
-                        //currSpeed = -0.5f;
+                        position.X -= 3;
                         //x_vel -= speed;
                         //x_vel /= -1;
                         //grounded = false;
                         //player1.direction.X = -1.0f * player1.direction.X;
-                        y_vel = 0;
-                        //position.Y -= 1;
-                       
                     }
 
-                    //right side collision
                     else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
-                        (p.position.X - p.Width / 2 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                        (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        //currSpeed = 0.5f;
-                        position.X += speed - 0.5f;
+                        position.X += 3;
                         //x_vel += speed;
                         //x_vel /= -1;
                         //    //grounded = false;
                         //    //player1.direction.X = -1.0f * player1.direction.X;
-                        y_vel = 0;
-                        //position.Y -= 1;
                     }
-          
+
+
+
+
+
+                }
+                else
+                {
+                    if ((BoundingBox.Bottom <
+                        (p.BoundingBox.Top - 40/*40 is the number we adjust to make it look better. but be careful because if the number is higher, then our guy
+                                                falls through the block. it's annoying...*/)))
+                    {
+
+                        grounded = true;
+
+                    }
+
+                    else if ((BoundingBox.Top >
+                        (p.position.Y + p.Height / 2 /*- Yradius*/)))
+                    {
+                        if (y_vel < 0)
+                            y_vel *= -1;
+
+                        else
+                        {
+                            x_vel *= -2;
+                        }
+                        //player1.direction.Y = -1.0f * player1.direction.Y;
+                    }
+
+
+                    else if ((position.X <
+                    (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    {
+                        position.X -= 2;
+                        //x_vel -= speed;
+                        //x_vel /= -1;
+                        //grounded = false;
+                        //player1.direction.X = -1.0f * player1.direction.X;
+                    }
+
+                    else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                        (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
+                    {
+                        position.X += 2;
+                        //x_vel += speed;
+                        //x_vel /= -1;
+                        //    //grounded = false;
+                        //    //player1.direction.X = -1.0f * player1.direction.X;
+                    }
 
                 }
             }
@@ -289,3 +322,119 @@ namespace ZombieRun
 
     }
 }
+
+
+
+/**
+class Zombie
+
+    {
+
+        public Rectangle Location { get; set; }
+
+        public double XVelocity { get; set; }
+
+        public double YVelocity { get; set; }
+
+        public double Speed { get; set; }
+
+        public bool Grounded { get; set; }
+
+        public Texture2D Image { get; set; }
+
+
+
+
+        public Zombie(Point startPosition, Texture2D image, double speed)
+
+        {
+
+            this.Image = image;
+
+            this.Location = new Rectangle(startPosition.X, startPosition.Y, Image.Width, Image.Height);
+
+            this.Speed = speed;
+
+        }
+
+
+
+
+        void Update(List<Block> blocks)
+
+        {
+
+            CheckForBlockIntersection(blocks);
+
+            UpdateVelocity();
+
+            UpdatePosition();
+
+        }
+
+
+
+
+        void Draw(SpriteBatch sb)
+
+        {
+
+            sb.Begin();
+
+            sb.Draw(Image, Location);
+
+            sb.End();
+
+        }
+
+
+
+
+        private bool CheckForBlockIntersections(List<Block> blocks)
+
+        {            
+
+            for(Block block in blocks){
+
+                if(this.Location.Intersects(block.Location)){
+
+                    Grounded = true;
+
+                    return;
+
+                }
+
+            }
+
+            Grounded = false;
+
+        }
+
+
+
+
+        private void UpdateVelocity()
+
+        {
+
+            YVelocity = Grounded ? 0 : Speed;
+
+        }
+
+
+
+
+        private void UpdatePosition()
+
+        {
+
+            double XPosition = Location.X + XVelocity;
+
+            double YPosition = Location.Y + YVelocity;
+
+            Location = new Rectangle(XPosition, YPosition, Image.Width, Image.Height);
+
+        }
+
+    }
+*/
