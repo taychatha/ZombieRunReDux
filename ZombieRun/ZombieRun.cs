@@ -558,7 +558,7 @@ namespace ZombieRun
             string path = Path.GetPathRoot(Environment.SystemDirectory) + "Users\\" + Environment.UserName + "\\Documents\\New Folder";
             if (!Directory.Exists(path))
             {
-                return -1;
+                return 0;
             }
             else
             {
