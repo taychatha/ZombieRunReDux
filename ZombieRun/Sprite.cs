@@ -21,12 +21,22 @@ namespace ZombieRun
         public Vector2 tleft;//-x,y
         public Vector2 bright;//x,-y
         public Vector2 bleft;//-x,-y
+        public bool moving;
+        public SpriteEffects flip;
+        public bool isRight;
+        
 
         public Sprite(Game myGame)
         {
             game = myGame;
+            this.flip = SpriteEffects.None;
+            isRight = true;
         }
 
+        public SpriteEffects GetFlip()
+        {
+            return this.flip;
+        }
         public Rectangle BoundingBox
         {
             get { return new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height); }
@@ -54,14 +64,14 @@ namespace ZombieRun
 
         
 
-        public virtual void Draw(SpriteBatch batch)
+        public virtual void Draw(SpriteBatch batch, SpriteEffects flip)
         {
             if (texture != null)
             {
                 Vector2 drawPosition = position;
                 drawPosition.X -= texture.Width / 2;
                 drawPosition.Y -= texture.Height / 2;
-                batch.Draw(texture, drawPosition, Color.White);
+                batch.Draw(texture, drawPosition, null, Color.White, 0, new Vector2 (0,0), 1, this.flip, 0);
             }
 
         }

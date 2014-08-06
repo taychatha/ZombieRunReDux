@@ -11,6 +11,9 @@ using Microsoft.Xna.Framework.Media;
 using Tao.Sdl;
 using System.Media;
 using System.Timers;
+using System.IO;
+using System.Text;
+using System.Diagnostics;
 #endregion
 
 namespace ZombieRun
@@ -46,8 +49,10 @@ namespace ZombieRun
         SpriteFont font;
         double myscore;
         int currentScore;
+        int highScore = 0;
         double timer;
         float fade = 1;
+        public static List<int> HighScoreList { get; set; }
 
         int blockcount;
         int initBlocks;
@@ -300,7 +305,7 @@ namespace ZombieRun
                 block b = new block(this);
                 b.setTexture("longBrick3");
                 b.LoadContent();
-                b.position = new Vector2(x1 - b.Width, 700 - b.Height);
+                b.position = new Vector2(x1, 700 - (b.Height/4));
                 x1 += (int)b.Width;
                 allBlocksAdd.Add(b);
                 lowBlocksAdd.Add(b);
@@ -314,7 +319,7 @@ namespace ZombieRun
         {
             x1 = 1100;
             //End Barrier, let's make it a 25% chance that a barrier occurs here
-            if (rnd.Next(0, 100) < 99)
+            if (rnd.Next(0, 100) < 10)
             {
                 block b = new block(this);
                 b.setTexture("longBrick3");
@@ -364,7 +369,7 @@ namespace ZombieRun
         {
             x1 = 1100;
             //End Barrier, let's make it a 25% chance that a barrier occurs here
-            if (rnd.Next(0, 100) < 15)
+            if (rnd.Next(0, 100) < 10)
             {
                 block b = new block(this);
                 b.LoadContent();
@@ -523,6 +528,48 @@ namespace ZombieRun
             }
         }
      */
+        public void storeHighScore(int score)
+        {
+            HighScoreList = new List<int>();
+            HighScoreList.Add(score);
+            //HighScoreList.Add(100);
+
+            //creates or opens the file (Path) if it already exists
+            string path = Path.GetPathRoot(Environment.SystemDirectory) + "Users\\" + Environment.UserName + "\\Documents\\New Folder";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            using (StreamWriter sw = File.CreateText(path + "\\high_score_list.txt"))
+            {
+                for (int i = 0; i < HighScoreList.Count; i++)
+                {
+                    //sw.WriteLine("highscore");
+                    //sw.WriteLine();
+                    sw.WriteLine(HighScoreList[i]);
+                }
+                Process.Start(path + "\\high_score_list.txt");
+            }
+        }
+
+        public int retrieveHighScore()
+        {
+            string[] getHighScore;
+            string path = Path.GetPathRoot(Environment.SystemDirectory) + "Users\\" + Environment.UserName + "\\Documents\\New Folder";
+            if (!Directory.Exists(path))
+            {
+                return -1;
+            }
+            else
+            {
+                //using (StreamReader sr = File.ReadAllLines(path + "\\high_score_list.txt"))
+                //{
+                getHighScore = File.ReadAllLines(path + "\\high_score_list.txt");
+                return Convert.ToInt32(getHighScore[0]);
+                //}        
+            }
+           
+        }
     
         protected override void Update(GameTime gameTime)
         {
@@ -707,9 +754,20 @@ namespace ZombieRun
             foreach (Bullet b in bullets)
             {
                 b.checkForBoxCollision(allBlocks);
-                b.position.X += 10;
-                if (b.position.X > 1020)
-                    b.isVisible = false;
+                if (b.isRight)
+                {
+                    b.position.X += 10;
+                
+                    if (b.position.X > 1020)
+                        b.isVisible = false;
+                }
+                else
+                {
+                    b.position.X -= 10;
+                
+                    if (b.position.X < -10)
+                        b.isVisible = false;
+                }
             }
             for (int i = 0; i < bullets.Count; i++)
             {
@@ -734,7 +792,17 @@ namespace ZombieRun
             newB.LoadContent();
             newB.position = player1.position;
 
-            newB.position.X += 20;
+            if (player1.isRight)
+            {
+                newB.isRight = true;
+                newB.position.X += 20;
+            }
+            else
+            {
+                newB.isRight = false;
+                newB.position.X -= 20;
+                newB.speed = -200;
+            }
             //newB.position.Y -= 13;
             newB.isVisible = true;
 
@@ -754,11 +822,16 @@ namespace ZombieRun
             ////draw all sprites here
             spriteBatch.Draw(bgTexture, new Vector2(0, 300), Color.White);
             spriteBatch.Draw(line, new Vector2(0, 700), Color.White);
-
+           
             //draw score
             //myscore += currentScore;
-            string score = "Score: " + Math.Floor(myscore);
+            string score = "SCORE: " + Math.Floor(myscore);
             spriteBatch.DrawString(font, score, new Vector2(800, 50), Color.WhiteSmoke);
+
+            //draw high score
+            string showHighScore = "HIGH SCORE: " + retrieveHighScore();
+            spriteBatch.DrawString(font, showHighScore, new Vector2(15, 50), Color.WhiteSmoke);
+            
 
             //draw Welcome to zombie run
             string nothing = "";
@@ -786,26 +859,29 @@ namespace ZombieRun
 
             foreach (block b in allBlocks)
             {
-                b.Draw(spriteBatch);
+                b.Draw(spriteBatch, b.GetFlip());
             }
 
             foreach (block b in allBlocksAdd)
             {
-                b.Draw(spriteBatch);
+                b.Draw(spriteBatch, b.GetFlip());
             }
 
             //draw number of blocks in allBlo cks
-            string numBlocks = "Number of blocks remaining: " + blockcount;
-            spriteBatch.DrawString(font, numBlocks, new Vector2(50, 150), Color.WhiteSmoke);
-            string numAddBlocks = "Number of added blocks remaining: " + initBlocks;
-            spriteBatch.DrawString(font, numAddBlocks, new Vector2(50, 175), Color.WhiteSmoke);
-            
+            //string numBlocks = "Number of blocks remaining: " + blockcount;
+            //spriteBatch.DrawString(font, numBlocks, new Vector2(50, 150), Color.WhiteSmoke);
+            //string numAddBlocks = "Number of added blocks remaining: " + initBlocks;
+            //spriteBatch.DrawString(font, numAddBlocks, new Vector2(50, 175), Color.WhiteSmoke);
+
+            //draw ammo
+            string ammo = "AMMO: UNLTD";
+            spriteBatch.DrawString(font, ammo, new Vector2(50, 750), Color.WhiteSmoke);
 
             foreach (Zombie z in zombies)
             {
                
                 if(z.isAlive)
-                    z.Draw(spriteBatch);
+                    z.Draw(spriteBatch, z.GetFlip());
             }
             
             //block1.Draw(spriteBatch);
@@ -814,7 +890,7 @@ namespace ZombieRun
             foreach (Bullet b in bullets)
             {
                 b.position.Y -= 13;
-                b.Draw(spriteBatch);
+                b.Draw(spriteBatch, b.GetFlip());
                 b.position.Y += 13;
             }
 
@@ -824,7 +900,7 @@ namespace ZombieRun
                 player1.textureName = "prep2-left";
             }
 
-            player1.Draw(spriteBatch);
+            player1.Draw(spriteBatch, player1.GetFlip());
 
             bool alive = true;
             if (player1.checkZombieCollisions(zombies))
@@ -832,6 +908,12 @@ namespace ZombieRun
                 string gameOver = "GAME OVER";
                 alive = false;
                 spriteBatch.DrawString(font, gameOver, new Vector2(412, 300), Color.Crimson);
+                highScore = retrieveHighScore();
+                if (highScore <= (int)Math.Floor(myscore))
+                {
+                    highScore = (int)Math.Floor(myscore);
+                    storeHighScore(highScore);
+                }
                 Exit();
 
             }

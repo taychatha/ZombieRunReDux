@@ -38,6 +38,7 @@ namespace ZombieRun
             y_vel = 0;
             x_vel = 0;
             movedX = 0;
+            isRight = true;
         }
 
         public float Width
@@ -65,7 +66,8 @@ namespace ZombieRun
         {
             if (controls.onPress(Keys.Right, Buttons.DPadRight)){
                 x_accel += speed;
-                this.textureName = "prep2";
+                isRight = true;
+                this.flip = SpriteEffects.None;
             }
                 
             else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
@@ -76,7 +78,9 @@ namespace ZombieRun
             if (controls.onPress(Keys.Left, Buttons.DPadLeft))
             {
                 x_accel -= speed;
+                isRight = false;
                 this.textureName = "prep2-left";
+                this.flip = SpriteEffects.FlipHorizontally;
             }
             else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
                 x_accel += speed;
