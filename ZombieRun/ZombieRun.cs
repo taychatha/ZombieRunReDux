@@ -14,6 +14,7 @@ using System.Timers;
 using System.IO;
 using System.Text;
 using System.Diagnostics;
+using Microsoft.Xna.Framework.Audio;
 #endregion
 
 namespace ZombieRun
@@ -29,7 +30,14 @@ namespace ZombieRun
         Texture2D line;
         Player player1;
         bool playerShooting;
-        
+        private bool paused = false; 
+        private bool pauseKeyDown = false;
+        private bool pausedForGuide = false;
+        BMFZ bmfz;
+        float timeSinceLastSpawn = 0F;
+        float timeSinceLastShot = 0F;
+        bool roundStarted = true;
+        bool alive = true;
         //block block2;
         //block block1;
         //block block3;
@@ -44,6 +52,7 @@ namespace ZombieRun
         int y1;
         List<Bullet> bullets = new List<Bullet>();
         List<Zombie> zombies = new List<Zombie>();
+                        
 
         //Score trial
         SpriteFont font;
@@ -67,6 +76,11 @@ namespace ZombieRun
 
         //for song audio
         Song song;
+        Song gunShot;
+        Song beep;
+        SoundEffect death;
+        SoundEffect zombieKill;
+        
 
 
 
@@ -79,6 +93,18 @@ namespace ZombieRun
             graphics.PreferredBackBufferHeight = 768;
         }
 
+        private void BeginPause(bool UserInitiated)
+        {
+            paused = true;
+            pausedForGuide = !UserInitiated;
+            //TODO: Pause Audio playback
+            //Todo: pause controller vibration
+        }
+
+        private void EndPause()
+        {
+            paused = false;
+        }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -109,13 +135,16 @@ namespace ZombieRun
             bgTexture = Content.Load<Texture2D>("background");
             line = Content.Load<Texture2D>("markerline");
             player1 = new Player(this);
-
+            bmfz = new BMFZ(this);
             font = Content.Load<SpriteFont>("main_font");
-
+            zombieKill = Content.Load<SoundEffect>("zdeath4");
+            
+            death = Content.Load<SoundEffect>("death3");
+                        
             SoundPlayer player = new SoundPlayer("Content/Zander Noriega - Abelian.wav");
              
-            player.Play();
-            MediaPlayer.Volume = 0.5f;
+            player.PlayLooping();
+            MediaPlayer.Volume = 1.0f;
             MediaPlayer.Play(song);
 
 
@@ -151,6 +180,7 @@ namespace ZombieRun
             midLevelGenerator();
             topLevelGenerator();
             lowLevelGenerator();
+            offscreenZombieGenerator();
            
             //refinement of block placement
             //for (int i = 1; i < blocks.Count; i++)
@@ -164,14 +194,14 @@ namespace ZombieRun
             //        blocks[i].position.Y = blocks[i-1].position.Y - 75;
             //    }
             //}
-            offscreenZombieGenerator();
+            //offscreenZombieGenerator();
 
             
-
+            
             player1.LoadContent();
-            player1.position = new Vector2(100, 700);
-            
-
+            player1.position = new Vector2(300, 700);
+            bmfz.LoadContent();
+            bmfz.position = new Vector2(50, 700);
 
             // TODO: use this.Content to load your game content here
         }
@@ -224,9 +254,6 @@ namespace ZombieRun
                 b.position = new Vector2(1900, 700-(b.Height/4));
                 x1 += (int)b.Width;
                 allBlocks.Add(b);
-
-
-
             }
 
             for (int i = 0; i < rnd.Next(2, 4); i++)
@@ -254,12 +281,13 @@ namespace ZombieRun
                 b.setTexture("longBrick3");
                 
                 b.LoadContent();
-                b.position = new Vector2(x1 - b.Width, 700 - b.Height);
+                b.position = new Vector2(x1 + b.Width, 700 - (b.Height / 4)); 
                 x1 += (int)b.Width;
                 allBlocks.Add(b);
                 lowBlocks.Add(b);
-
             }
+
+           
         }
 
         public void lowLevelGeneratorAdd()
@@ -276,9 +304,6 @@ namespace ZombieRun
                
                 
                 allBlocksAdd.Add(b);
-
-
-
             }
 
             for (int i = 0; i < rnd.Next(2, 4); i++)
@@ -289,7 +314,7 @@ namespace ZombieRun
                 allBlocksAdd.Add(b);
             }
 
-            //for loop trial for "randomly" placing tiles
+            //for loop trial for "randomly" placing tilesfoff
 
 
             foreach (block b in lowBlocksAdd)
@@ -311,6 +336,29 @@ namespace ZombieRun
                 lowBlocksAdd.Add(b);
 
             }
+
+            //ZOMBIE GENERATION
+            /*for (int i = 0; i < rnd.Next(3, 6); i++)
+            {
+                Zombie Z = new Zombie(this);
+                Z.LoadContent();
+                zombies.Add(Z);
+            }
+
+            int flip = 0;
+            foreach (Zombie z in zombies)
+            {
+                flip = rnd.Next(0, 1);
+                int x2 = rnd.Next(1900, x1);
+                /*if (flip == 0)
+                {
+                    z.position = new Vector2(x1, 700);
+                }
+                else
+                    z.position = new Vector2(x1, 400);
+                 
+                z.position = new Vector2(x2, 400);
+            } */
         }
 
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
@@ -325,7 +373,7 @@ namespace ZombieRun
                 b.setTexture("longBrick3");
                 
                 b.LoadContent();
-                b.position = new Vector2(1100, 600 - (b.Height / 4));
+                b.position = new Vector2(x1, 600 - (b.Height / 4));
                 x1 += (int)b.Width;
                 allBlocks.Add(b);
                 
@@ -346,7 +394,7 @@ namespace ZombieRun
 
             foreach (block b in midBlocks)
             {
-                b.position = new Vector2(x1, 600);
+                b.position = new Vector2(x1, 600 - (b.Height/4));
                 x1 += (int)b.Width;
 
             }
@@ -356,11 +404,11 @@ namespace ZombieRun
             {
                 block b = new block(this);
                 b.setTexture("longBrick3");
+
                 b.LoadContent();
                 b.position = new Vector2(x1, 600 - (b.Height / 4));
                 x1 += (int)b.Width;
-                allBlocks.Add(b);
-                midBlocks.Add(b);
+                allBlocksAdd.Add(b);
 
             }
         }
@@ -375,7 +423,7 @@ namespace ZombieRun
                 b.LoadContent();
                 b.setTexture("longBrick3");
 
-                b.position = new Vector2(1100, 600 - (b.Height / 4));
+                b.position = new Vector2(x1, 600 - (b.Height / 4));
                 x1 += (int)b.Width;
                 allBlocksAdd.Add(b);
 
@@ -396,7 +444,7 @@ namespace ZombieRun
 
             foreach (block b in midBlocksAdd)
             {
-                b.position = new Vector2(x1, 600);
+                b.position = new Vector2(x1, 600 - (b.Height / 4));
                 x1 += (int)b.Width;
 
             }
@@ -408,7 +456,7 @@ namespace ZombieRun
                 b.setTexture("longBrick3");
                 
                 b.LoadContent();
-                b.position = new Vector2(x1 - b.Width, 600 - (b.Height / 4));
+                b.position = new Vector2(x1, 600 - (b.Height / 4));
                 x1 += (int)b.Width;
                 allBlocksAdd.Add(b);
                 
@@ -465,33 +513,33 @@ namespace ZombieRun
 
         public void offscreenZombieGenerator()
         {
-            int count = rnd.Next(7, 12);
+            int count = rnd.Next(12, 20);
             for (int i = 0; i <= count; i++)
             {
-                x1 = rnd.Next(1100, 1900);
+                x1 = rnd.Next(1050, 2400);
                 Zombie z = new Zombie(this);
                 //z.speed = (float)rnd.Next(5, 15) / 10;
                 float tempSpeed = 1.0f;
-                int caseSwitch = rnd.Next(1, 6);
+                int caseSwitch = rnd.Next(0, 7);
                 switch (caseSwitch)
                 {
                     case 1:
-                        tempSpeed = 0.6f;
+                        tempSpeed = 3.2f;
                         break;
                     case 2:
-                        tempSpeed = 0.8f;
+                        tempSpeed = 3.3f;
                         break;
                     case 3:
-                        tempSpeed = 1.0f;
+                        tempSpeed = 3.4f;
                         break;
                     case 4:
-                        tempSpeed = 1.2f;
+                        tempSpeed = 3.5f;
                         break;
                     case 5:
-                        tempSpeed = 1.4f;
+                        tempSpeed = 3.6f;
                         break;
                     case 6:
-                        tempSpeed = 1.6f;
+                        tempSpeed = 3.7f;
                         break;
                 }
                 z.speed = tempSpeed;
@@ -500,34 +548,37 @@ namespace ZombieRun
                 List<block> temp = new List<block>();
                 temp.AddRange(allBlocks);
                 temp.AddRange(allBlocksAdd);
-                    foreach (block b in temp)
+                foreach (block b in temp)
                     {
-                        if (z.position.X < (b.position.X + b.Width) && z.position.X > b.position.X  && (rnd.Next(1,4) <= 2))
+                        if (z.position.X < (b.position.X + b.Width) && z.position.X > b.position.X  && (rnd.Next(1,6) <= 4))
                         {
+                            if (z.position.Y == (700 - z.Height))
+                            {
+                                z.position.Y = (700 - b.Height - z.Height);
+                            } 
                             z.position.Y = b.position.Y - z.Height;
                             z.grounded = true;
-                            z.speed = 0.7f;
+                            z.speed = 3.4f;
+                            //z.currSpeed = 2.5f;
                         }
                     }
-                
+                List<block> newTemp = new List<block>();
+                newTemp.AddRange(lowBlocks);
+                newTemp.AddRange(lowBlocksAdd);
+                foreach (block b in newTemp)
+                {
+                    if (z.position.X < (b.position.X + b.Width) && z.position.X > b.position.X)
+                    {
+                        //.WriteLine("ZOMBIE IS IN THE FUCKING BLOCK");
+                        z.position.Y = 700f - b.Height - z.Height;
+                        //Console.WriteLine(z.position.Y);
+                    }
+                }
                 zombies.Add(z);
             }
         }
 
-    /*    public void addBlocks()
-        {
-            initBlocks = allBlocksAdd.Count;
-            for (int i = 0; i < allBlocksAdd.Count; i++)
-            {
-                allBlocksAdd[i].Update();
-                if (allBlocksAdd[i].position.X <= -50)
-                {
-                    allBlocksAdd.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
-     */
+    
         public void storeHighScore(int score)
         {
             HighScoreList = new List<int>();
@@ -542,12 +593,12 @@ namespace ZombieRun
             }
             using (StreamWriter sw = File.CreateText(path + "\\high_score_list.txt"))
             {
-                for (int i = 0; i < HighScoreList.Count; i++)
-                {
+            //  for (int i = 0; i < HighScoreList.Count; i++)
+            //  {
                     //sw.WriteLine("highscore");
                     //sw.WriteLine();
-                    sw.WriteLine(HighScoreList[i]);
-                }
+                    sw.WriteLine(score);
+               // }
                 Process.Start(path + "\\high_score_list.txt");
             }
         }
@@ -570,53 +621,140 @@ namespace ZombieRun
             }
            
         }
-    
+        
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            if (controls.onPress(Keys.P, Buttons.Start))
+            {
+                if (paused == true)
+                    paused = false;
+                else
+                    paused = true;
+            }
 
+            if (paused && alive)
+            {
+                if (!roundStarted)
+                {
+                    //ToDo: title splash screen
+                }
+                else if(roundStarted)
+                {
+                    if (controls.onPress(Keys.Q, Buttons.B))
+                    {
+                        highScore = retrieveHighScore();
+                        if (highScore <= (int)Math.Floor(myscore))
+                        {
+                            highScore = (int)Math.Floor(myscore);
+                            storeHighScore(highScore);
+                        }
+                        death.Play();
+                        Exit();
+                    }
+                }
+            }
+            if (paused && !alive)
+            {
+               
 
+                if (controls.onPress(Keys.Q, Buttons.B))
+                {
+                    highScore = retrieveHighScore();
+                    if (highScore <= (int)Math.Floor(myscore))
+                    {
+                        highScore = (int)Math.Floor(myscore);
+                        storeHighScore(highScore);
+                    }
+                    Exit();
+                }
+
+                else if (controls.onPress(Keys.R, Buttons.A))
+                 {
+                     highScore = retrieveHighScore();
+                     if (highScore <= (int)Math.Floor(myscore))
+                     {
+                         highScore = (int)Math.Floor(myscore);
+                         storeHighScore(highScore);
+                     }
+                    GameTime gt = new GameTime(); 
+                    alive = true;
+                    player1 = new Player(this); 
+                    player1.LoadContent(); 
+                    player1.position = new Vector2(300, 700); 
+                    for (int i = 0; i < allBlocks.Count; i++) 
+                    { 
+                        allBlocks.RemoveAt(i);
+                        i--;
+                    } 
+                    for (int i = 0; i < allBlocksAdd.Count; i++) 
+                    {
+                        allBlocksAdd.RemoveAt(i);
+                        i--;
+                    } 
+                    for (int i = 0; i < zombies.Count; i++) 
+                    { 
+                        zombies.RemoveAt(i);
+                        i--;
+                    } 
+                    midLevelGenerator(); 
+                    topLevelGenerator(); 
+                    lowLevelGenerator();
+                    //trial
+                    midLevelGeneratorAdd();
+                    topLevelGeneratorAdd();
+                    lowLevelGeneratorAdd();
+                    SoundEffect death = Content.Load<SoundEffect>("death3");
+                    death.Play();
+                    offscreenZombieGenerator(); 
+                    myscore = 0; 
+                    paused = false; 
+                    Update(gt); 
+                }
+                
+            }
             // TODO: Add your update logic here
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             controls.Update();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            //score trial
-            //this adds 100 points for each dead zombie, then resets its value
-            foreach (Zombie z in zombies)
+            if (!paused)
             {
-                currentScore = z.getScore();
-                myscore += currentScore;
-                z.setScore(0);
-            }
-
-            //this provides a continuous score increase over time.
-            timer = (double) gameTime.ElapsedGameTime.TotalSeconds;
-            double scoreModifier = timer * 10;
-            myscore += scoreModifier;
-
-            fade = fade - .005f;
-
-            blockcount = allBlocks.Count;
-            //initBlocks = allBlocks.Count;
-            //update all blocks in array
-            if (renewBlocks || allBlocks.Count>=1)
-            {
-                for (int i = 0; i < allBlocks.Count; i++)
+                timeSinceLastSpawn += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                timeSinceLastShot += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                foreach (Zombie z in zombies)
                 {
-                    allBlocks[i].Update();
-                    if (allBlocks[i].position.X <= -50)
-                    {
-                        allBlocks.RemoveAt(i);
-                        i--;
-                    }
-
+                    currentScore = z.getScore();
+                    myscore += currentScore;
+                    z.setScore(0);
                 }
-            }
 
-            
+                //this provides a continuous score increase over time.
+                timer = (double)gameTime.ElapsedGameTime.TotalSeconds;
+                double scoreModifier = timer * 10;
+                myscore += scoreModifier;
+
+                fade = fade - .002f;
+
+                blockcount = allBlocks.Count;
+                //initBlocks = allBlocks.Count;
+                //update all blocks in array
+                if (renewBlocks || allBlocks.Count >= 1)
+                {
+                    for (int i = 0; i < allBlocks.Count; i++)
+                    {
+                        allBlocks[i].Update();
+                        if (allBlocks[i].position.X <= -50)
+                        {
+                            allBlocks.RemoveAt(i);
+                            i--;
+                        }
+
+                    }
+                }
+
+
                 //I AM ALL THAT IS MAN
                 if (renewBlocks && allBlocks[allBlocks.Count - 1].position.X <= 500)
                 {
@@ -628,15 +766,16 @@ namespace ZombieRun
                     midLevelGeneratorAdd();
                     topLevelGeneratorAdd();
                     lowLevelGeneratorAdd();
-                    
+                    offscreenZombieGenerator();
+
                     newBlocks = true;
                     renewBlocks = false;
-                    
-                   
+
+
                 }
 
                 initBlocks = allBlocksAdd.Count;
-                if (newBlocks || allBlocksAdd.Count>=1)
+                if (newBlocks || allBlocksAdd.Count >= 1)
                 {
                     for (int i = 0; i < allBlocksAdd.Count; i++)
                     {
@@ -649,98 +788,117 @@ namespace ZombieRun
                     }
                 }
 
-            
-                if (newBlocks && allBlocksAdd[allBlocksAdd.Count - 1].position.X <= 500)
-                {
-                    midLevelGenerator();
-                    topLevelGenerator();
-                    lowLevelGenerator();
-                    renewBlocks = true;
-                    newBlocks = false;
-                    
-                }
-
-                
-            
-
-           
-            
-           
-            
-
-            //I AM ALL THAT IS MAN ZOMBIES
-
-            
-            for (int i = 0; i < zombies.Count; i++ )
-            {
-                if (!zombies[i].isAlive)
-                {
-                    zombies.RemoveAt(i);
-                }
-            }
-
-
-
-            if (zombies.Count <=6 )
-            {
-                //zombieGenerator();
-                offscreenZombieGenerator();
-            }
-           // if (blockcount <= 4)
-           // {
-           //    midLevelGenerator();
-           //     topLevelGenerator();
-           // }
-           
-            //foreach (block b in allBlocks)
-            //{
-              //  b.Update();
-                //if (!b.visible)
-                //{
-                  //  allBlocks.Remove(b);
-                //}
-            //}
-            //block1.Update();
-            //block2.Update();
-            //block3.Update();
-            //CheckCollisions();
-
-           
-
-            player1.Update(controls, gameTime, allBlocks, allBlocksAdd);
-
-            foreach (Zombie z in zombies)
-            {
-                if (z.isAlive)
-                {
-
-                    List<block> tempList = new List<block>();
-                    tempList.AddRange(allBlocks);
-                    tempList.AddRange(allBlocksAdd);
-                    z.Update(gameTime, tempList);
-                    z.getPlayerPosition(player1);
-                    z.checkBulletCollision(bullets);
-                    if (z.position.X < -15)
+                //if (allBlocksAdd.Count >=1 ) {
+                    if (newBlocks && allBlocksAdd[allBlocksAdd.Count - 1].position.X <= 500)
                     {
-                        z.isAlive = false;
+                        midLevelGenerator();
+                        topLevelGenerator();
+                        lowLevelGenerator();
+                        offscreenZombieGenerator();
+                        renewBlocks = true;
+                        newBlocks = false;
+                    //}
+                }
+
+                if (timeSinceLastSpawn > 20F )
+                {
+                    offscreenZombieGenerator();
+                    timeSinceLastSpawn = 0f;
+                }
+
+
+
+
+
+
+
+
+
+                //I AM ALL THAT IS MAN ZOMBIES
+
+
+                for (int i = 0; i < zombies.Count; i++)
+                {
+                    if (!zombies[i].isAlive)
+                    {
+                        zombies.RemoveAt(i);
                     }
                 }
 
+
+
+                if (zombies.Count <= 6)
+                {
+                    //zombieGenerator();
+                    //offscreenZombieGenerator();
+                }
+
+                player1.Update(controls, gameTime, allBlocks, allBlocksAdd);
+
+                bmfz.getPlayerPosition(player1, gameTime);
+                bmfz.Update(gameTime);
+
+                float prevX = 0;
+                float prevY = 0;
+                float currX = 0;
+                float currY = 0;
+                foreach (Zombie z in zombies)
+                {
+                    if (z.isAlive)
+                    {
+                        currX = z.position.X;
+                        currY = z.position.Y;
+
+                        List<block> tempList = new List<block>();
+                        tempList.AddRange(allBlocks);
+                        tempList.AddRange(allBlocksAdd);
+                        z.Update(gameTime, tempList);
+                        /*if (prevX != 0 && (Math.Abs(prevY - currY) < 5))
+                        {
+                            if ((currX - prevX) < 5 && !z.rightCollision)
+                            {
+                                z.position.X += 5;
+                            }
+                        }*/
+                        z.getPlayerPosition(player1);
+                        z.checkBulletCollision(bullets);
+                        if(!z.isAlive)
+                        {
+                            zombieKill.Play();
+                        }
+                        
+                        if (z.position.X < -15)
+                        {
+                            z.isAlive = false;
+                        }
+                    }
+                    prevX = currX;
+                    prevY = currY;
+
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Space) && pastKey.IsKeyUp(Keys.Space))
+                {
+                    if (timeSinceLastShot> 0.1F)
+                    {
+                        Shoot();
+                        timeSinceLastShot = 0;
+                        //SoundPlayer player2 = new SoundPlayer("Content/Gunshot.wav");
+                        SoundEffect shot = Content.Load<SoundEffect>("Gunshot");
+                        shot.Play(.3f, 0f, 0f);
+                    }
+                }
+
+               
+
+                UpdateBullets();
+
+                pastKey = Keyboard.GetState();
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) && pastKey.IsKeyUp(Keys.Space))
-            {
-                Shoot();
-
-            }
-
+            //score trial
+            //this adds 100 points for each dead zombie, then resets its value
             
 
-            UpdateBullets();
-            
-            pastKey = Keyboard.GetState();
 
-            
-            
             
             base.Update(gameTime);
         }
@@ -753,7 +911,10 @@ namespace ZombieRun
 
             foreach (Bullet b in bullets)
             {
-                b.checkForBoxCollision(allBlocks);
+                List<block> temp = new List<block>();
+                temp.AddRange(allBlocks);
+                temp.AddRange(allBlocksAdd);
+                b.checkForBoxCollision(temp);
                 if (b.isRight)
                 {
                     b.position.X += 10;
@@ -822,7 +983,20 @@ namespace ZombieRun
             ////draw all sprites here
             spriteBatch.Draw(bgTexture, new Vector2(0, 300), Color.White);
             spriteBatch.Draw(line, new Vector2(0, 700), Color.White);
-           
+            string spacebar = "press spacebar to shoot";
+            string movement = "up to jump, arrow keys to move";
+
+            string pause = "Press 'P' to Pause";
+            spriteBatch.DrawString(font, spacebar, new Vector2(50, 200), Color.WhiteSmoke * fade);
+            spriteBatch.DrawString(font, movement, new Vector2(50, 225), Color.WhiteSmoke * fade);
+            spriteBatch.DrawString(font, pause, new Vector2(50, 250), Color.WhiteSmoke * fade);
+            
+            string gameover = "Game Over";
+            string pausedState = "Paused!";
+            string retry = "Press 'R' to Retry";
+            string resume = "Press 'P' to Resume";
+            string quit = "Press 'Q' to Quit";
+            
             //draw score
             //myscore += currentScore;
             string score = "SCORE: " + Math.Floor(myscore);
@@ -850,11 +1024,7 @@ namespace ZombieRun
           
             
             //draw instructions
-            string spacebar = "press spacebar to shoot";
-            string movement = "up to jump, arrow keys to move";
-            spriteBatch.DrawString(font, spacebar, new Vector2(50, 200),Color.WhiteSmoke*fade);
-            spriteBatch.DrawString(font, movement, new Vector2(50, 225), Color.WhiteSmoke * fade);
-
+           
             //draw all blocks in array
 
             foreach (block b in allBlocks)
@@ -902,19 +1072,38 @@ namespace ZombieRun
 
             player1.Draw(spriteBatch, player1.GetFlip());
 
-            bool alive = true;
-            if (player1.checkZombieCollisions(zombies))
+            if (bmfz.isAlive)
             {
-                string gameOver = "GAME OVER";
+                bmfz.Draw(spriteBatch);
+            }
+
+            if (paused && alive)
+            {
+                spriteBatch.DrawString(font, pausedState, new Vector2(420, bgTexture.Height / 2), Color.WhiteSmoke);
+                spriteBatch.DrawString(font, resume, new Vector2(350, bgTexture.Height / 2 + 50), Color.WhiteSmoke);
+                spriteBatch.DrawString(font, quit, new Vector2(350, bgTexture.Height / 2 + 100), Color.WhiteSmoke);
+
+            }
+            else if (paused && !alive)
+            {
+                spriteBatch.DrawString(font, gameover, new Vector2(420, bgTexture.Height / 2), Color.WhiteSmoke);
+                //spriteBatch.DrawString(font, retry, new Vector2(350, bgTexture.Height / 2 + 50), Color.WhiteSmoke);
+                spriteBatch.DrawString(font, quit, new Vector2(350, bgTexture.Height / 2 + 100), Color.WhiteSmoke);
+
+            }
+            
+            if (player1.checkZombieCollisions(zombies, bmfz))
+            {
+                
                 alive = false;
-                spriteBatch.DrawString(font, gameOver, new Vector2(412, 300), Color.Crimson);
-                highScore = retrieveHighScore();
-                if (highScore <= (int)Math.Floor(myscore))
-                {
-                    highScore = (int)Math.Floor(myscore);
-                    storeHighScore(highScore);
-                }
-                Exit();
+                paused = true;
+                allBlocks.Clear();
+                allBlocksAdd.Clear();
+                zombies.Clear();
+                
+                
+
+                
 
             }
            
@@ -931,6 +1120,11 @@ namespace ZombieRun
 
 
 
+
+
         
     }
 }
+
+
+

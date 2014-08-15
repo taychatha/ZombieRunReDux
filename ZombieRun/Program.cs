@@ -20,6 +20,7 @@ namespace ZombieRun
         {
             using (var game = new ZombieRun())
                 game.Run();
+                
         }
     }
 #endif

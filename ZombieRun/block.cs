@@ -42,7 +42,7 @@ namespace ZombieRun
 
 
         public void Update() {
-            position.X -= 0.5F;
+            position.X -= 2.5f;
         }
 
         private void checkYCollisions()

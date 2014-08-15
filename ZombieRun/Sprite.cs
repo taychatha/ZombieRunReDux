@@ -24,15 +24,48 @@ namespace ZombieRun
         public bool moving;
         public SpriteEffects flip;
         public bool isRight;
-        
+        protected int frameIntervalCounter = 0;
+        protected int frameIntervalDuration = 5;
+        protected int currentAnimationFrame = 0;
+        //for sprite sheet animation
+        protected List<Texture2D> animation;
+
 
         public Sprite(Game myGame)
         {
             game = myGame;
             this.flip = SpriteEffects.None;
+            animation = new List<Texture2D>();
             isRight = true;
         }
 
+        //for sprite animation
+        public void UpdateAnimation()
+        {
+            //Console.WriteLine()
+            if (frameIntervalCounter < frameIntervalDuration)
+            {
+                frameIntervalCounter++;
+                return;
+            }
+            if (moving)
+            {
+                currentAnimationFrame++;
+                if (currentAnimationFrame >= animation.Count)
+                {
+                    currentAnimationFrame = 0;
+                }
+            }
+            else
+            {
+                if (currentAnimationFrame > 0)
+                {
+                    currentAnimationFrame--;
+                }
+            }
+            texture = animation[currentAnimationFrame];
+            frameIntervalCounter = 0;
+        }
         public SpriteEffects GetFlip()
         {
             return this.flip;
@@ -66,6 +99,11 @@ namespace ZombieRun
 
         public virtual void Draw(SpriteBatch batch, SpriteEffects flip)
         {
+            //for sprite animation
+            if (animation.Count > 0)
+            {
+                UpdateAnimation();
+            }
             if (texture != null)
             {
                 Vector2 drawPosition = position;

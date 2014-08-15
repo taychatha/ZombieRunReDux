@@ -252,3 +252,327 @@ C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
 C:\Users\tchat_000\Documents\Visual Studio 2013\Projects\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\student\Downloads\ZR-HighSCore-add\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw.CSLAB\AppData\Local\Temp\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw.CSLAB\Desktop\ZR-WednesdayBuild-1\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\tuc4uw\Downloads\ZR-251am872014\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 1.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 2.png
+C:\Users\sef4b.CSLAB\Desktop\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 1.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 2.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw\Downloads\ZombieRun--BMFZ 4-33\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 1.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 2.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 3.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\student\Downloads\Faster ZR\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 1.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 2.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 3.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\death3.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Gunshot.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath5.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath1.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath2.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath3.wav
+C:\Users\tuc4uw\Documents\ZombieRun-Pierce's build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath4.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bg.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2-left.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\prep2.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zombietest.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\main_font.xnb
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\SDL.dll
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\background.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath5.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 1.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 2.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\BMFZ 3.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 2.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\brick 3.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\bullet.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 1.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 2.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\creeper 3.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Creeper1.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath1.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\death3.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Gunshot.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero1.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero2.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero3.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero4.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero5.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\hero6.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath2.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath3.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBlock.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\longBrick3.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\markerline.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\block.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\zdeath4.wav
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zander Noriega - Abelian.mp3
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Content\Zombie Brick.png
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\ZombieRun.pdb
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.csprojResolveAssemblyReference.cache
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.exe
+C:\Users\tuc4uw\Documents\ZR-Latest Build\ZombieRun\ZombieRun\obj\x86\Debug\ZombieRun.pdb

@@ -26,21 +26,35 @@ namespace ZombieRun
         public double gravity = 0.4;
         public int maxFallSpeed = 10;
         private int jumpPoint = 0;
+        private int frame = 0;
+        public bool isRight;
+        private int picNum;
+        private Vector2 prevPos;
+        private Texture2D tempText;
 
         public Player(Game myGame):
             base(myGame)
         {
 
             textureName = "prep2";
-            speed = 5;
+            speed = 7;
             friction = .15;
             x_accel = 0;
             y_vel = 0;
             x_vel = 0;
             movedX = 0;
             isRight = true;
+            picNum = 1;
         }
-
+        public override void LoadContent()
+        {
+            for (int i = 1; i < 7; i++)
+            {
+                tempText = game.Content.Load<Texture2D>("hero" + i + ".png");
+                animation.Add(tempText);
+            }
+            texture = animation[picNum];
+        }
         public float Width
         {
             get { return texture.Width; }
@@ -55,7 +69,38 @@ namespace ZombieRun
             position.X -= 0.5f;  
             Move(controls, platforms, platforms2);
             Jump(controls, gameTime);
-            
+             //For sprite sheet animation
+            if (moving)
+            {
+                if ((prevPos.X - 0.2f) == position.X)
+                {
+                    //frame++;
+                    moving = false;
+                    picNum = 1;
+                }
+                else
+                {
+                    if (grounded == true)
+                    {
+                        moving = true;
+                        frame++;
+                    }
+                }
+                if (frame % 5 == 0)
+                {
+                    texture = animation[picNum];
+                    picNum++;
+                    //texture = animation[picNum];
+                    if (picNum == 6)
+                    {
+                        picNum = 1;
+                    }
+
+                    //texture = animation[picNum];
+                    //Console.WriteLine(x_vel);
+                    prevPos = position;
+                }
+            }
 
             
         }
@@ -68,10 +113,15 @@ namespace ZombieRun
                 x_accel += speed;
                 isRight = true;
                 this.flip = SpriteEffects.None;
+                moving = true;
             }
-                
+
             else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
+            {
                 x_accel -= speed;
+                moving = false;
+
+            }
 
 
 
@@ -81,9 +131,13 @@ namespace ZombieRun
                 isRight = false;
                 this.textureName = "prep2-left";
                 this.flip = SpriteEffects.FlipHorizontally;
+                moving = true;
             }
             else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
+            {
                 x_accel += speed;
+                moving = false;
+            }
 
             double playerFriction = pushing ? (friction * 3) : friction;
             x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
@@ -110,8 +164,6 @@ namespace ZombieRun
 
             
             checkYCollisions(platforms, platforms2);
-            //checkYCollisions(platforms2);
-            //checkPlatformCollisions(platform);
         }
 
         private void Jump(Controls controls, GameTime gameTime)
@@ -130,7 +182,7 @@ namespace ZombieRun
             }
         }
 
-        
+       
         public void checkYCollisions(List<block> platforms, List<block> platforms2)
         {
 
@@ -202,17 +254,17 @@ namespace ZombieRun
                     else if ( (position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
-                         position.X -= 3;
+                         position.X -= 8;
                          //x_vel -= speed;
                          //x_vel /= -1;
                          //grounded = false;
                          //player1.direction.X = -1.0f * player1.direction.X;
                      }
 
-                     else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                     else if ((position.X >
                          (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                      {
-                         position.X += 3;
+                         position.X += 8;
                          //x_vel += speed;
                          //x_vel /= -1;
                          //    //grounded = false;
@@ -252,17 +304,17 @@ namespace ZombieRun
                     else if ((position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X -= 3;
+                        position.X -= 8;
                         //x_vel -= speed;
                         //x_vel /= -1;
                         //grounded = false;
                         //player1.direction.X = -1.0f * player1.direction.X;
                     }
 
-                    else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                    else if ((position.X >
                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X += 3;
+                        position.X += 8;
                         //x_vel += speed;
                         //x_vel /= -1;
                         //    //grounded = false;
@@ -273,7 +325,7 @@ namespace ZombieRun
             } 
         }
 
-        public bool checkZombieCollisions(List<Zombie> zombies)
+        public bool checkZombieCollisions(List<Zombie> zombies, BMFZ bmfz)
         {
             bool dead = false;
             foreach (Zombie z in zombies)
@@ -282,11 +334,13 @@ namespace ZombieRun
                 {
                     break;
                 }
-                else if (BoundingBox.Intersects(z.BoundingBox))
+                else if (BoundingBox.Intersects(z.CollisionBox) || BoundingBox.Intersects(bmfz.HitBox))
                 {
                     dead = true;
                 }
             }
+
+           
             return dead;
         }
 

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ZombieRun
 {
@@ -23,13 +24,19 @@ namespace ZombieRun
         public int movedX;
         private Vector2 direction;
         private bool pushing;
-        public double gravity = 1.0;
+        public double gravity = 0.1;
         public int maxFallSpeed = 10;
         private int jumpPoint = 0;
         private float destination;
         public int myscore;
         public float currSpeed;
+        public bool rightCollision;
         Random rnd = new Random();
+        private int picNum;
+        private Vector2 prevPos;
+        private int frame = 0;
+        private Texture2D tempText;
+        public float timeSinceTurn = 0;
 
         public Zombie(Game myGame) :
             base(myGame)
@@ -43,10 +50,19 @@ namespace ZombieRun
             x_vel = 0;
             movedX = 0;
             position.X = 800;
-            position.Y = 700;
+            position.Y = 536;
             isAlive = true;
+            rightCollision = false;
         }
-
+        public override void LoadContent()
+        {
+            for (int i = 1; i < 4; i++)
+            {
+                tempText = game.Content.Load<Texture2D>("creeper " + i + ".png");
+                animation.Add(tempText);
+            }
+            texture = animation[picNum];
+        }
         public float Width
         {
             get { return texture.Width; }
@@ -56,12 +72,54 @@ namespace ZombieRun
             get { return texture.Height; }
         }
 
+        public Rectangle HitBox
+        {
+            get { return new Rectangle((int)position.X, ((int)position.Y - 20), texture.Width, texture.Height); }
+
+        }
+        public Rectangle CollisionBox
+        {
+            get { return new Rectangle((int)position.X+20, ((int)position.Y), (texture.Width-40), texture.Height); }
+        }
+
         public void Update(GameTime gameTime, List<block> platforms)
         {
 
-            Move(platforms);
+            Move(platforms, gameTime);
             //Jump(gameTime);
+            
+            if ((prevPos.X - 0.5f) == position.X)
+            {
+                //frame++;
+                moving = false;
+                picNum = 1;
+            }
+            else
+            {
+                if (grounded == true)
+                {
+                moving = true;
+                frame++;
+                }
+            }
 
+            if (moving)
+            {
+                if (frame % 8 == 0)
+                {
+                    texture = animation[picNum];
+                    picNum++;
+                    //texture = animation[picNum];
+                    if (picNum == 3)
+                    {
+                        picNum = 1;
+                    }
+                }
+                //texture = animation[picNum];
+                //Console.WriteLine(x_vel);
+                prevPos = position; 
+            }
+            
 
 
         }
@@ -74,16 +132,45 @@ namespace ZombieRun
 
 
 
-        public void Move(List<block> platforms)
+        public void Move(List<block> platforms, GameTime gameTime)
         {
-
-            if (destination == this.position.X) {
-                //x_accel = 0;
-            }
-            if (destination > this.position.X)
+            
+            if (this.position.X > 1024)
             {
-                
-                position.X += currSpeed;
+                currSpeed = 2.5f;
+            }
+            else
+            {
+                currSpeed = speed;
+            }
+
+            if (position.Y <= prevPos.Y)
+            {
+                if ((Math.Abs(destination - this.position.X) <= 20))
+                {
+                    timeSinceTurn = 0;
+                    //x_accel = 0;
+
+                }
+                if (destination > this.position.X)
+                {
+                    //if (grounded)
+                    //{
+                    //  if (timeSinceTurn > 2F) 
+                    // {
+                    this.flip = SpriteEffects.FlipHorizontally;
+                    
+                    timeSinceTurn += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (timeSinceTurn > 1F)
+                    {
+                        if(grounded)
+                            position.X += (currSpeed - 2.5F);
+
+                    }
+                    //position.X += currSpeed - 1f;
+                    //}
+                    //}
+                }
             }
 
             //else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
@@ -95,7 +182,20 @@ namespace ZombieRun
                //x_accel -= speed;
                 //else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
                 //  x_accel += speed;
-                position.X -= currSpeed;
+               // if (grounded)
+                //{
+                  //  if (timeSinceTurn > 2F)
+                   // {timeSinceTurn += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        this.flip = SpriteEffects.None;
+                        timeSinceTurn += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (timeSinceTurn > 1F)
+                        {
+                            if (grounded)
+                                position.X -= currSpeed;
+                        }
+                            
+                    //}
+                //}
         }
             //double playerFriction = pushing ? (friction * 3) : friction;
             //x_vel = x_vel * (1 - playerFriction) + x_accel * .10;
@@ -119,6 +219,11 @@ namespace ZombieRun
                 position.Y = position.Y;
             }
 
+            //if (y_vel > 0)
+            //{
+             //   position.X = prevPos.X;
+            //}
+
             //grounded = false;
 
 
@@ -133,12 +238,13 @@ namespace ZombieRun
 
            foreach (Bullet b in bullets)
                 {
-                    if (BoundingBox.Intersects(b.BoundingBox))
+                    if (b.BoundingBox.Intersects(HitBox))
                     {
                         myscore = 100;
                         isAlive = false;
                         b.isVisible = false;
                         bullets.Remove(b);
+                        
                         break;
                     }
 
@@ -156,7 +262,36 @@ namespace ZombieRun
             myscore = score;
         }
 
+        public void zombieCollisions(List<Zombie> zombies)
+        {
+            List<Zombie> collidedZombie = new List<Zombie>();
 
+            foreach (Zombie z in zombies)
+            {
+                if (position == z.position)
+                {
+                    if (destination > this.position.X)
+                    {
+
+                        position.X -= 10;
+                    }
+
+                    //else if (controls.onRelease(Keys.Right, Buttons.DPadRight))
+                    //  x_accel -= speed;
+
+
+
+                    if (destination < this.position.X)
+                    {
+                        //x_accel -= speed;
+                        //else if (controls.onRelease(Keys.Left, Buttons.DPadLeft))
+                        //  x_accel += speed;
+                        position.X += 10;
+                    }
+                }
+
+            }
+        }
         public void checkYCollisions(List<block> platforms)
         {
 
@@ -218,17 +353,18 @@ namespace ZombieRun
                     else if ((position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X -= 3;
+                        position.X -= 5;
+                        rightCollision = true;
                         //x_vel -= speed;
                         //x_vel /= -1;
                         //grounded = false;
                         //player1.direction.X = -1.0f * player1.direction.X;
                     }
 
-                    else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                    else if ((position.X >
                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X += 3;
+                        position.X += 5;
                         //x_vel += speed;
                         //x_vel /= -1;
                         //    //grounded = false;
@@ -268,17 +404,17 @@ namespace ZombieRun
                     else if ((position.X <
                     (p.position.X + p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X -= 2;
+                        position.X -= 5;
                         //x_vel -= speed;
                         //x_vel /= -1;
                         //grounded = false;
                         //player1.direction.X = -1.0f * player1.direction.X;
                     }
 
-                    else if (BoundingBox.Intersects(p.BoundingBox) && (position.X >
+                    else if ((position.X >
                         (p.position.X - p.Width / 1.5 /*+ Xradius*/))) // otherwise, we have to be colliding from the sides
                     {
-                        position.X += 2;
+                        position.X += 5;
                         //x_vel += speed;
                         //x_vel /= -1;
                         //    //grounded = false;
@@ -290,33 +426,33 @@ namespace ZombieRun
         }
 
 
-        public static float NextFloat(Random random)
-        {
-            float tempSpeed = 1.0f;
-            int caseSwitch = random.Next(1, 6);
-            switch (caseSwitch)
-            {
-                case 1:
-                    tempSpeed = 0.6f;
-                    break;
-                case 2:
-                    tempSpeed = 0.8f;
-                    break;
-                case 3:
-                    tempSpeed = 1.0f;
-                    break;
-                case 4:
-                    tempSpeed = 1.2f;
-                    break;
-                case 5:
-                    tempSpeed = 1.4f;
-                    break;
-                case 6:
-                    tempSpeed = 1.6f;
-                    break;     
-            }
-            return tempSpeed;
-        }
+        //public static float NextFloat(Random random)
+        //{
+        //    float tempSpeed = 1.0f;
+        //    int caseSwitch = random.Next(1, 6);
+        //    switch (caseSwitch)
+        //    {
+        //        case 1:
+        //            tempSpeed = 0.6f;
+        //            break;
+        //        case 2:
+        //            tempSpeed = 0.8f;
+        //            break;
+        //        case 3:
+        //            tempSpeed = 1.0f;
+        //            break;
+        //        case 4:
+        //            tempSpeed = 1.2f;
+        //            break;
+        //        case 5:
+        //            tempSpeed = 1.4f;
+        //            break;
+        //        case 6:
+        //            tempSpeed = 1.6f;
+        //            break;     
+        //    }
+        //    return tempSpeed;
+        //}
 
 
 
